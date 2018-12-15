@@ -8,6 +8,7 @@ package planning_projection.dao.oracle;
 import java.sql.CallableStatement;
 import java.util.List;
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,21 +44,21 @@ public class OraclePlanningDAO implements IPlanningDAO{
     public List<Projection> getLesProjection() {
         ResultSet rset = null; 
         Statement stmt = null;
-        List<Projection> listeMiniBus = null; 
+        List<Projection> listeProjection = null; 
         try {
               stmt= connexionBD.createStatement();
-              listeMiniBus = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from MINIBUS");
+              listeProjection = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from Projection");
               while(rset.next()){
-                MiniBus newM = new MiniBus(rset.getInt("NOMINIBUS"), rset.getInt("CAPACITE"));
-                listeMiniBus.add(newM);
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"));
+                listeProjection.add(newM);
             }
             }catch(SQLException ex){
              Logger.getLogger(OraclePlanningDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
               
         
-        return listeMiniBus ;
+        return listeProjection ;
         
         
         
@@ -67,9 +68,10 @@ public class OraclePlanningDAO implements IPlanningDAO{
     public void creerProjection(Projection Projection){ 
         PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("INSERT INTO MINIBUS (NOMINIBUS,CAPACITE) VALUES (?,?)");
-            state.setInt(1,Projection.getNumeroMiniBus());
-            state.setInt(2,Projection.getCpt());
+            state=OraclePlanningDAO.connexionBD.prepareStatement("INSERT INTO Planning (date,heure,numProjection) VALUES (?,?,?)");
+            state.setDate(1, (Date) Projection.getDate());
+            state.setString(2,Projection.getHeures());
+            state.setInt(2,Projection.getNumProjection());
             state.execute();
             state.close();
         }catch(SQLException ex){
@@ -82,9 +84,10 @@ public class OraclePlanningDAO implements IPlanningDAO{
    public void supprimerAdministratif(Projection Projection) {
          PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("DELETE FROM MINIBUS WHERE NOMINIBUS = ? AND CAPACITE = ?");
-            state.setInt(1,Projection.getNumeroMiniBus());
-            state.setInt(2,Projection.getCpt());
+            state=OraclePlanningDAO.connexionBD.prepareStatement("DELETE FROM Planning WHERE date = ? AND heure = ? AND numProjection = ?");
+            state.setDate(1, (Date) Projection.getDate());
+            state.setString(2,Projection.getHeures());
+            state.setInt(2,Projection.getNumProjection());
             state.execute();
             state.close();
         }catch(SQLException ex){

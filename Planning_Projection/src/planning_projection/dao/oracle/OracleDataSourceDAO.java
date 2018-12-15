@@ -36,8 +36,8 @@ public class OracleDataSourceDAO extends OracleDataSource {
             ods.setDriverType("thin");
             ods.setPortNumber(1521);
             ods.setServiceName("orcl.univ-lyon1.fr");
-            ods.setUser("p1702053");
-            ods.setPassword("295543");
+            ods.setUser("p1700102");
+            ods.setPassword("294150");
             ods.setServerName("iutdoua-oracle.univ-lyon1.fr");
   
         }catch (Exception ex) {
