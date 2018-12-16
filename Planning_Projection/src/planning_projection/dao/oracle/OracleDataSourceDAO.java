@@ -31,7 +31,7 @@ public class OracleDataSourceDAO extends OracleDataSource {
         try{
             
        Properties props = new Properties();
-       fichier = new FileInputStream( ".\\src\\sortieminibus\\dao\\oracle\\connexion.properties");
+       fichier = new FileInputStream( ".\\src\\planning_projection\\dao\\oracle\\connexion.properties");
             ods = new OracleDataSourceDAO();
             ods.setDriverType("thin");
             ods.setPortNumber(1521);
