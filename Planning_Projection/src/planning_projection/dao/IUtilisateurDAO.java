@@ -19,6 +19,6 @@ public interface IUtilisateurDAO {
     
     public void setDataSource(javax.sql.DataSource ds);
     
-    public List<Utilisateur> getUser();
+    public List<Utilisateur> getUsers();
     
 }

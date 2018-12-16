@@ -41,7 +41,7 @@ public class OracleUtilisateurDAO implements IUtilisateurDAO{
    
     
     @Override 
-    public List<Utilisateur> getUser() {
+    public List<Utilisateur> getUsers() {
         ResultSet rset = null; 
         Statement stmt = null;
         List<Utilisateur> listeUser = null; 

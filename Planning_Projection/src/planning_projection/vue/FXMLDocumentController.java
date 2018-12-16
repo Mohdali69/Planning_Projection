@@ -9,6 +9,7 @@ import java.io.FileNotFoundException;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -20,7 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
-import planning_projection.metier.Projection;
+import planning_projection.metier.Projection;   
 import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OraclePlanningDAO;
@@ -49,11 +50,11 @@ public class FXMLDocumentController implements Initializable {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();
             y1.setDataSource(ods);
             y1.setConnection(ods.getConnection());
-            L=y1.getUser();
-            int i=1;
-            boolean l =false ;
-            System.out.println("Im here");
+            L=y1.getUsers();
+            int i=0;
+             
             
+            /*
             while(i<=L.size()){
                 if(login.getText().equals(L.get(i).getUser()) && mdp.getText().equals(L.get(i).getPassword())){
                     l=true;
@@ -64,12 +65,24 @@ public class FXMLDocumentController implements Initializable {
                     i++;
                     System.out.println(L.get(i).getUser());
                 }
+            }*/
+            Iterator<Utilisateur> iter;
+            iter = L.iterator();
+            while(iter.hasNext()){
+                Utilisateur user = iter.next();
+                if(user.getUser().equals(login.getText()) && user.getPassword().equals(mdp.getText())){
+                    i=1;
+                }
+                else{
+                    i=2;
+                }
             }
+            System.out.println("Im here");
             
-            if(l==true){
+            if(i==1){
                 message.setText("Vous avez les bon id");
             }
-            else if(l==false){
+            else if(i==2){
                 message.setText("Veuillez Verifié vos Identifiants");
             }
         } catch (FileNotFoundException ex) {
