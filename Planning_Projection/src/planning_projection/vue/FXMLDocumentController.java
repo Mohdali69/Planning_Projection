@@ -51,7 +51,7 @@ public class FXMLDocumentController implements Initializable {
             y1.setDataSource(ods);
             y1.setConnection(ods.getConnection());
             L=y1.getUsers();
-            int i=0;
+            boolean connexion = false;
              
             
             /*
@@ -65,7 +65,7 @@ public class FXMLDocumentController implements Initializable {
                     i++;
                     System.out.println(L.get(i).getUser());
                 }
-            }*/
+            }
             Iterator<Utilisateur> iter;
             iter = L.iterator();
             while(iter.hasNext()){
@@ -76,15 +76,26 @@ public class FXMLDocumentController implements Initializable {
                 else{
                     i=2;
                 }
+            }*/System.out.println(L);
+            for( Utilisateur user : L){
+                if(user.getUser().equals(login.getText())){
+                    if(user.getPassword().equals(mdp.getText())){
+                        connexion = true;//code connexion
+                        message.setText("Connexion Reussie");
+                    }
+                    else{
+                        connexion = false;//traitement erreur mdp
+                        message.setText("Mauvais Mot de Passe");
+                    }
+                }
+                else{
+                    connexion = false;//traitement erreur login 
+                    message.setText("Mauvais Login");
+                }
             }
             System.out.println("Im here");
             
-            if(i==1){
-                message.setText("Vous avez les bon id");
-            }
-            else if(i==2){
-                message.setText("Veuillez Verifié vos Identifiants");
-            }
+          
         } catch (FileNotFoundException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }
