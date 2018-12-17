@@ -4,26 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.shape.Rectangle?>
 
-<AnchorPane id="AnchorPane" maxHeight="409.0" maxWidth="506.0" minHeight="409.0" minWidth="506.0" prefHeight="409.0" prefWidth="506.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="435.0" layoutX="-1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="513.0">
-         <fill>
-            <RadialGradient centerX="0.45111113654242624" centerY="0.5" radius="0.8831775166163935">
-               <stops>
-                  <Stop color="#588eba" />
-                  <Stop color="#a44f4f" offset="1.0" />
-               </stops>
-            </RadialGradient>
-         </fill>
-      </Rectangle>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="81.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
-      <TextField fx:id="login" layoutX="185.0" layoutY="146.0" />
-        <Button fx:id="button" layoutX="323.0" layoutY="286.0" onAction="#handleButtonAction" text="Se Connecter" />
-      <TextField fx:id="mdp" layoutX="190.0" layoutY="208.0" />
-      <Label fx:id="message" layoutX="99.0" layoutY="289.0" prefHeight="46.0" prefWidth="201.0" />
+      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Label fx:id="message" layoutX="545.0" layoutY="490.0" prefHeight="34.0" prefWidth="209.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="535.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+            <TextField fx:id="login" layoutX="645.0" layoutY="402.0" />
+              <Button fx:id="button" layoutX="758.0" layoutY="487.0" onAction="#handleButtonAction" text="Se Connecter" />
+            <TextField fx:id="mdp" layoutX="643.0" layoutY="329.0" />
+         </children>
+      </Pane>
     </children>
 </AnchorPane>

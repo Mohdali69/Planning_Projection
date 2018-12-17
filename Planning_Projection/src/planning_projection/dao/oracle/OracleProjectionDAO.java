@@ -18,76 +18,80 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.sql.DataSource;
-import planning_projection.metier.Planning;
-import planning_projection.dao.IPlanningDAO;
+import planning_projection.metier.Projection;
+import planning_projection.dao.IProjectionDAO;
 
 /**
  *
  * @author Mohamed
  */
-public class OraclePlanningDAO implements IPlanningDAO{
+public class OracleProjectionDAO implements IProjectionDAO{
     private static DataSource ds; 
     private static Connection connexionBD;
     
     @Override
     public void setDataSource(DataSource ds){
-        OraclePlanningDAO.ds = ds; 
+        OracleProjectionDAO.ds = ds; 
     }
     
     @Override
     public void setConnection (Connection c) {
-        OraclePlanningDAO.connexionBD = c;
+        OracleProjectionDAO.connexionBD = c;
     }
    
     
     @Override 
-    public List<Planning> getLesPlannings() {
+    public List<Projection> getLesProjection() {
         ResultSet rset = null; 
         Statement stmt = null;
-        List<Planning> listePlanning = null; 
+        List<Projection> listeProjection = null; 
         try {
               stmt= connexionBD.createStatement();
-              listePlanning = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from PLANNING");
+              listeProjection = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from PROJECTION");
               while(rset.next()){
-                Planning newM = new Planning(rset.getInt("numPlanning"));
-                listePlanning.add(newM);
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"));
+                listeProjection.add(newM);
             }
             }catch(SQLException ex){
-             Logger.getLogger(OraclePlanningDAO.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
             }
               
         
-        return listePlanning ;
+        return listeProjection ;
         
         
         
     }
     
     @Override
-    public void creerPlanning(Planning Planning){ 
+    public void creerProjection(Projection Projection){ 
         PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("INSERT INTO PLANNING (numPlanning) VALUES (?)");
-            state.setInt(1,Planning.getNumPlanning());
+            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO PROJECTION (date,heure,numProjection) VALUES (?,?,?)");
+            state.setDate(1, (Date) Projection.getDate());
+            state.setString(2,Projection.getHeures());
+            state.setInt(2,Projection.getNumProjection());
             state.execute();
             state.close();
         }catch(SQLException ex){
-           Logger.getLogger(OraclePlanningDAO.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
          
      }
 
     @Override
-   public void supprimerPlanning(Planning Planning) {
+   public void supprimerAdministratif(Projection Projection) {
          PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("DELETE FROM PLANNING WHERE numPlanning = ?");
-            state.setInt(1,Planning.getNumPlanning());
+            state=OracleProjectionDAO.connexionBD.prepareStatement("DELETE FROM PROJECTION WHERE date = ? AND heure = ? AND numProjection = ?");
+            state.setDate(1, (Date) Projection.getDate());
+            state.setString(2,Projection.getHeures());
+            state.setInt(2,Projection.getNumProjection());
             state.execute();
             state.close();
         }catch(SQLException ex){
-           Logger.getLogger(OraclePlanningDAO.class.getName()).log(Level.SEVERE, null, ex);
+           Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
    public int procedure() throws SQLException{

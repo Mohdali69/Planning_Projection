@@ -20,11 +20,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Pane;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
 import planning_projection.metier.Projection;   
 import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
-import planning_projection.dao.oracle.OraclePlanningDAO;
+import planning_projection.dao.oracle.OracleProjectionDAO;
 /**
  *
  * @author Asus
@@ -40,6 +42,10 @@ public class FXMLDocumentController implements Initializable {
     private TextField mdp;
     @FXML
     private Label message;
+    @FXML
+    private AnchorPane connexionPanel;
+    @FXML
+    private Pane ConnexionPane;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException {
@@ -82,6 +88,7 @@ public class FXMLDocumentController implements Initializable {
                     if(user.getPassword().equals(mdp.getText())){
                         connexion = true;//code connexion
                         message.setText("Connexion Reussie");
+                        connexionPanel.setVisible(false);
                     }
                     else{
                         connexion = false;//traitement erreur mdp

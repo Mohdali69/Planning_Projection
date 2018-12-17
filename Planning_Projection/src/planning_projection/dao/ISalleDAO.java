@@ -7,21 +7,18 @@ package planning_projection.dao;
 
 import java.sql.Connection;
 import java.util.List;
-import planning_projection.metier.Planning;
+import planning_projection.metier.Salle;
 
 /**
  *
  * @author Asus
  */
-public interface IPlanningDAO {
+public interface ISalleDAO {
     
     public void setConnection(Connection c);
     
     public void setDataSource(javax.sql.DataSource ds);
     
-    public List<Planning> getLesPlannings();
+    public List<Salle> getLesSalles();
     
-    public void supprimerPlanning(Planning Planning);
-    
-    public void creerPlanning(Planning Planning);
 }
