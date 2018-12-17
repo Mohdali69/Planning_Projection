@@ -1,19 +1,17 @@
 <?php
 class Utilisateur
 {
-private $login; //identifiant du fichier ou code produit
-private $type; //nom du fichier dans le dossier
-private $mail; //description de la photo
-private $date; //categorie de la photo
+private $login;
+private $type;
 private $pass;
+private $identifiant;
 
-//Constructeur de la Class Photo
-function __construct($log, $type, $mail, $date, $pass){
+//Constructeur de la Class Utilisateur
+function __construct($log, $type, $pass, $num_user){
   $this->login = $log;
   $this->type = $type;
-  $this->mail = $mail;
-  $this->date = $date;
   $this->pass = $pass;
+  $this->identifiant = $num_user;
 }
 
 public function getLogin(){
@@ -24,12 +22,8 @@ public function getType(){
   return $this->type;
 }
 
-public function getMail(){
-  return $this->mail;
-}
-
-public function getDate(){
-  return $this->date;
+public function getIdentifiant(){
+  return $this->identifiant;
 }
 
 public function getPass(){

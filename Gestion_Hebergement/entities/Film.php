@@ -2,67 +2,60 @@
 class Film
 {
 private $identifiant;
-private $name;
-private $desc;
-private $cat;
-private $marque;
-private $prixmax;
-private $prixmin;
-private $codeHangar;
 private $titre;
-private $etat;
+private $duree;
+private $realisateur;
+private $pays;
+private $competition;
+private $nbProjections;
+private $lendemain;
+
 //Constructeur de la Class Film
-function __construct($id, $nom, $desc, $cat, $m, $pmx, $pmn,$c, $t, $e){
+function __construct($id, $title, $duree, $realisateur, $p, $comp, $nbP){
   $this->identifiant = $id;
-  $this->name = $nom;
-  $this->desc = $desc;
-  $this->cat = $cat;
-  $this->marque = $m;
-  $this->prixmax = $pmx;
-  $this->prixmin = $pmn;
-  $this->codeHangar = $c;
-  $this->titre = $t;
-  $this->etat = $e;
+  $this->titre = $title;
+  $this->duree = $duree;
+  $this->realisateur = $realisateur;
+  $this->pays = $p;
+  $this->competition = $comp;
+  $this->nbProjections = $nbP;
+  $this->lendemain = false;
 }
 
 public function getId(){
   return $this->identifiant;
 }
 
-public function getName(){
-  return $this->name;
-}
-
-public function getDesc(){
-  return $this->desc;
-}
-
-public function getCat(){
-  return $this->cat;
-}
-
-public function getMarque(){
-  return $this->marque;
-}
-
-public function getPrixmax(){
-  return $this->prixmax;
-}
-
-public function getPrixmin(){
-  return $this->prixmin;
-}
-
-public function getCodehangar(){
-  return $this->codeHangar;
-}
-
 public function getTitre(){
   return $this->titre;
 }
 
-public function getEtat(){
-  return $this->etat;
+public function getDuree(){
+  return $this->duree;
+}
+
+public function getRealisateur(){
+  return $this->realisateur;
+}
+
+public function getPays(){
+  return $this->pays;
+}
+
+public function getCompetition(){
+  return $this->competition;
+}
+
+public function getNbProjections(){
+  return $this->nbProjections;
+}
+
+public function getLendemain(){
+  return $this->lendemain;
+}
+
+public function setLendemain($ld){
+  $this->lendemain = $ld;
 }
 
 }
