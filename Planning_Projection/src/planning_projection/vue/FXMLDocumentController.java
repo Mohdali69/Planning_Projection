@@ -27,13 +27,15 @@ import planning_projection.metier.Projection;
 import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
+import planning_projection.assets.Connexion;
 /**
  *
  * @author Asus
  */
 public class FXMLDocumentController implements Initializable {
     
-   
+    private OracleUtilisateurDAO utilisateur;
+    private OracleDataSourceDAO ods;
     @FXML
     private Button button;
     @FXML
@@ -41,79 +43,57 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField mdp;
     @FXML
-    private Label message;
+    public Label message;
     @FXML
     private AnchorPane connexionPanel;
     @FXML
-    private Pane ConnexionPane;
+    public Pane ConnexionPane;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException {
-        OracleUtilisateurDAO y1 = new OracleUtilisateurDAO();
-        OracleDataSourceDAO ods;
-        List<Utilisateur> L = new ArrayList();
-        try {
-            ods = OracleDataSourceDAO.getOracleDataSourceDAO();
-            y1.setDataSource(ods);
-            y1.setConnection(ods.getConnection());
-            L=y1.getUsers();
-            boolean connexion = false;
-             
-            
-            /*
-            while(i<=L.size()){
-                if(login.getText().equals(L.get(i).getUser()) && mdp.getText().equals(L.get(i).getPassword())){
-                    l=true;
-                    i=L.size();
-                    
-                }
-                else{
-                    i++;
-                    System.out.println(L.get(i).getUser());
-                }
-            }
-            Iterator<Utilisateur> iter;
-            iter = L.iterator();
-            while(iter.hasNext()){
-                Utilisateur user = iter.next();
-                if(user.getUser().equals(login.getText()) && user.getPassword().equals(mdp.getText())){
-                    i=1;
-                }
-                else{
-                    i=2;
-                }
-            }*/System.out.println(L);
-            for( Utilisateur user : L){
-                if(user.getUser().equals(login.getText())){
-                    if(user.getPassword().equals(mdp.getText())){
-                        connexion = true;//code connexion
-                        message.setText("Connexion Reussie");
-                        connexionPanel.setVisible(false);
-                    }
-                    else{
-                        connexion = false;//traitement erreur mdp
-                        message.setText("Mauvais Mot de Passe");
-                    }
-                }
-                else{
-                    connexion = false;//traitement erreur login 
-                    message.setText("Mauvais Login");
-                }
-            }
-            System.out.println("Im here");
-            
-          
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-      
-        
+            Connexion con = new Connexion();
+            con.connexion(login.getText(),mdp.getText(),utilisateur);
+
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
+        try {
+            ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
+            utilisateur.setDataSource(ods);//Initialisation du Data Source
+            utilisateur.setConnection(ods.getConnection());//"
+        }
         
-    }    
-    
+       catch (FileNotFoundException ex) {    
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
+        }    
+    }/*
+    public boolean connexion(String login,String mdp){
+        boolean con=false;//Création d'un boolean afin de tester la connexion
+        List<Utilisateur> LUtilisateur = new ArrayList();//Création d'une Liste d'Utilisateur
+        LUtilisateur=utilisateur.getUsers();//Liste d'Utilisateur Rempli depuis la BD (getUsers() methode qui importe les données de la BD)
+        for(Utilisateur user : LUtilisateur){//Utilisation d'un foreach afin de parcourir la List 
+                if(user.getUser().equals(login)){//Si ce que l'on a ecrit correspond à ce que contient la List
+                    if(user.getPassword().equals(mdp)){
+                        con = true;//code connexion
+                        message.setText("Connexion Reussie");
+                        connexionPanel.setVisible(false);
+                    }
+                    else{//Sinon 
+                        con = false;//traitement erreur mdp
+                        message.setText("Mauvais Mot de Passe");
+                    }
+                }
+                else{
+                    con = false;//traitement erreur login 
+                    message.setText("Mauvais Login");
+                }
+            }
+        return con;
+    }
+*/
 }
