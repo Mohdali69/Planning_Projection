@@ -1,6 +1,6 @@
 <?PHP
 require_once(PATH_MODELS.'DAO.php');
-require_once(PATH_ENTITY.'Photo.php');
+
 class PhotoDAO extends DAO{
   public function getUser(){
     $requete = 'Select * from Photo ';

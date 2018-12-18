@@ -4,10 +4,23 @@
 const DEBUG = true; // production : false; dev : true
 
 // Accès base de données
-const BD_HOST = 'iutdoua-web.univ-lyon1.fr';
+const BD_HOST = 'iutdoua-oracle.univ-lyon1.fr';
+const BD_HOST_PORT = 1521;
+const BD_SERVICE_NAME = 'orcl';
 const BD_DBNAME = 'p1700102';
 const BD_USER = 'p1700102';
 const BD_PWD = '294150';
+const BD_CONNECT = 'oci:dbname=(DESCRIPTION =
+(ADDRESS_LIST =
+	(ADDRESS =
+		(PROTOCOL = TCP)
+		(Host = '.BD_HOST.')
+		(Port = '.BD_HOST_PORT.'))
+)
+(CONNECT_DATA =
+	(SERVICE_NAME = '.BD_SERVICE_NAME.')
+)
+)';
 
 // Langue du site
 const LANG ='FR-fr';
