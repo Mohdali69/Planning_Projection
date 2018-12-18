@@ -15,12 +15,14 @@
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Film.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/ISalleDAO.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/D:/Projet_CPOA/Planning_Projection/nbproject/jfx-impl.xml</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/connexion.properties</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleSalleDAO.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/vue/Planning_Projection.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/IPlanningDAO.java</file>
+            <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Utilisateur.java</file>
             <file>file:/D:/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleProjectionDAO.java</file>
         </group>

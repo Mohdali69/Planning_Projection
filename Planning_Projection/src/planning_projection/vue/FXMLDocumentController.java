@@ -21,9 +21,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
+import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.shape.Rectangle;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
 import planning_projection.metier.Projection;   
 import planning_projection.metier.Utilisateur;
@@ -51,21 +54,30 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane ConnexionPane;
     @FXML
-    private ProgressBar ProgessBar;
+    private Pane AccueilPane;
+    @FXML
+    private TableView<?> tableau;
+    @FXML
+    private Button buttonPlanning;
+    @FXML
+    private Button buttonProjection;
+    @FXML
+    private ProgressIndicator progressBar;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
             boolean log= false;
+            progressBar.setProgress(0);
             Connexion con = new Connexion();
-            System.out.println("ZOB");
             log = con.connexion(login.getText(),mdp.getText(),utilisateur);
             if(log==true){
-                ProgessBar.setProgress(50);
+                progressBar.setProgress(50);
                 sleep(2000,2);
-                ProgessBar.setProgress(100);
-                sleep(1000,2);
+                progressBar.setProgress(100);
+                sleep(2000,2);
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
+                AccueilPane.setVisible(true);
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");
@@ -76,6 +88,7 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        AccueilPane.setVisible(false);
         utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
