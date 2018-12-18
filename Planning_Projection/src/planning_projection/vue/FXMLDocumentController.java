@@ -6,6 +6,7 @@
 package planning_projection.vue;
 
 import java.io.FileNotFoundException;
+import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -43,17 +45,32 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField mdp;
     @FXML
-    public Label message;
+    private Label message;
     @FXML
     private AnchorPane connexionPanel;
     @FXML
-    public Pane ConnexionPane;
+    private Pane ConnexionPane;
+    @FXML
+    private ProgressBar ProgessBar;
     
     @FXML
-    private void handleButtonAction(ActionEvent event) throws SQLException {
+    private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
+            boolean log= false;
             Connexion con = new Connexion();
-            con.connexion(login.getText(),mdp.getText(),utilisateur);
-
+            System.out.println("ZOB");
+            log = con.connexion(login.getText(),mdp.getText(),utilisateur);
+            if(log==true){
+                ProgessBar.setProgress(50);
+                sleep(2000,2);
+                ProgessBar.setProgress(100);
+                sleep(1000,2);
+                connexionPanel.setVisible(true);
+                ConnexionPane.setVisible(false);
+            }
+            else{
+                message.setText("Veuillez Verifier vos Ids");
+            }
+             
     }
     
     @Override
