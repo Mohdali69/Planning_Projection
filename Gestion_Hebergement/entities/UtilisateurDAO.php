@@ -4,8 +4,9 @@ require_once(PATH_ENTITY.'Utilisateur.php');
 class UtilisateurDAO extends DAO{
 
   public function getUser(){
-    $requete = "Select * from Utilisateur";
+    $requete = "Select * from UTILISATEUR;";
     $data = $this->queryAll($requete);
+    print_r($data);
     $i = 0;
     foreach ($data as $user) {
       $Users[$i] = new Utilisateur($user[0], $user[2], $user[3], $user[4], $user[1]);
