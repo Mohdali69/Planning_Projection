@@ -48,7 +48,7 @@ public class OracleUtilisateurDAO implements IUtilisateurDAO{
         try {
               stmt= connexionBD.createStatement();
               listeUser = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from UTILISATEUR");
+              rset = stmt.executeQuery("SELECT * from Utilisateur");
               while(rset.next()){
                 Utilisateur newM = new Utilisateur(rset.getString("user"), rset.getString("password"),rset.getString("type"),rset.getInt("numUser"));
                 listeUser.add(newM);

@@ -6,6 +6,7 @@
 package Main;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,7 +45,7 @@ public class ConnexionTest {
     }
     
     @Before
-    public void setUp() {
+    public void setUp() throws IOException {
          utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
@@ -52,9 +53,7 @@ public class ConnexionTest {
             utilisateur.setConnection(ods.getConnection());//"
         }
         
-       catch (FileNotFoundException ex) {    
-            Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+       catch (FileNotFoundException | SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }    
     }

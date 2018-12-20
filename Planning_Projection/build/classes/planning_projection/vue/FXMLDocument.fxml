@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.MotionBlur?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -15,6 +16,29 @@
 
 <AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
+      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfbfb" height="310.0" layoutX="535.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+            <TextField fx:id="login" layoutX="627.0" layoutY="322.0" />
+              <Button fx:id="button" layoutX="762.0" layoutY="489.0" onAction="#handleButtonAction" text="Se Connecter" />
+            <Label fx:id="message" layoutX="545.0" layoutY="490.0" prefHeight="34.0" prefWidth="209.0" />
+            <PasswordField fx:id="mdp" layoutX="630.0" layoutY="392.0">
+               <effect>
+                  <MotionBlur />
+               </effect></PasswordField>
+            <ProgressIndicator fx:id="progressBar" layoutX="694.0" layoutY="443.0" progress="0.0" />
+         </children>
+      </Pane>
       <Pane fx:id="AccueilPane" prefHeight="862.0" prefWidth="1442.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
@@ -30,32 +54,12 @@
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfbfb" height="360.0" layoutX="514.0" layoutY="251.0" stroke="BLACK" strokeType="INSIDE" width="414.0" />
             <TableView fx:id="tableau" layoutX="967.0" layoutY="305.0" prefHeight="200.0" prefWidth="200.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="C1" prefWidth="75.0" text="C1" />
+                <TableColumn fx:id="C2" prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
             <Button fx:id="buttonPlanning" layoutX="547.0" layoutY="317.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" text="Créer Un Planning Automatiquement" />
             <Button fx:id="buttonProjection" layoutX="547.0" layoutY="485.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection" />
-         </children>
-      </Pane>
-      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
-               <fill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="#cf2d2d" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfbfb" height="310.0" layoutX="535.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
-            <TextField fx:id="login" layoutX="644.0" layoutY="322.0" />
-              <Button fx:id="button" layoutX="758.0" layoutY="487.0" onAction="#handleButtonAction" text="Se Connecter" />
-            <Label fx:id="message" layoutX="545.0" layoutY="490.0" prefHeight="34.0" prefWidth="209.0" />
-            <PasswordField fx:id="mdp" layoutX="646.0" layoutY="395.0" />
-            <ProgressIndicator fx:id="progressBar" layoutX="694.0" layoutY="443.0" progress="0.0" />
          </children>
       </Pane>
     </children>

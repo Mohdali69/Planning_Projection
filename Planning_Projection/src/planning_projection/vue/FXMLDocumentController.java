@@ -6,6 +6,7 @@
 package planning_projection.vue;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.sql.SQLException;
@@ -22,6 +23,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -40,6 +42,7 @@ import planning_projection.assets.Connexion;
 public class FXMLDocumentController implements Initializable {
     
     private OracleUtilisateurDAO utilisateur;
+    private OracleProjectionDAO projection;
     private OracleDataSourceDAO ods;
     @FXML
     private Button button;
@@ -56,13 +59,17 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane AccueilPane;
     @FXML
-    private TableView<?> tableau;
+    private TableView<Projection> tableau;
     @FXML
     private Button buttonPlanning;
     @FXML
     private Button buttonProjection;
     @FXML
     private ProgressIndicator progressBar;
+    @FXML
+    private TableColumn<?, ?> C1;
+    @FXML
+    private TableColumn<?, ?> C2;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -70,11 +77,12 @@ public class FXMLDocumentController implements Initializable {
             progressBar.setProgress(0);
             Connexion con = new Connexion();
             log = con.connexion(login.getText(),mdp.getText(),utilisateur);
+            double i=0.0;
+            
             if(log==true){
-                progressBar.setProgress(50);
-                sleep(2000,2);
-                progressBar.setProgress(100);
-                sleep(2000,2);
+                progressBar.setProgress(0.5);
+                sleep(1000,5);
+                progressBar.setProgress(1);
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
@@ -90,18 +98,28 @@ public class FXMLDocumentController implements Initializable {
         // TODO
         AccueilPane.setVisible(false);
         utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
+        projection = new OracleProjectionDAO();//Création de l'Oracle Projection DAO 
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
             utilisateur.setDataSource(ods);//Initialisation du Data Source
-            utilisateur.setConnection(ods.getConnection());//"
+            utilisateur.setConnection(ods.getConnection());//
+            projection.setDataSource(ods);
+            projection.setConnection(ods.getConnection());
+            
         }
         
        catch (FileNotFoundException ex) {    
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (IOException | SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         }    
-    }/*
+    }
+    
+    
+    
+    
+    /*
+   
     public boolean connexion(String login,String mdp){
         boolean con=false;//Création d'un boolean afin de tester la connexion
         List<Utilisateur> LUtilisateur = new ArrayList();//Création d'une Liste d'Utilisateur

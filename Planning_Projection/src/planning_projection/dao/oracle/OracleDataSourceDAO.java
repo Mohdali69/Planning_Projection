@@ -5,44 +5,62 @@
  */
 package planning_projection.dao.oracle;
 
+import com.mysql.jdbc.jdbc2.optional.MysqlDataSource;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import oracle.jdbc.pool.OracleDataSource; 
+ 
 
 
 /**
  *
  * @author Mohamed
  */
-public class OracleDataSourceDAO extends OracleDataSource {
+public class OracleDataSourceDAO extends MysqlDataSource {
     
     public static OracleDataSourceDAO ods;
     
     private OracleDataSourceDAO () throws SQLException  {
     }
     
-    public static OracleDataSourceDAO getOracleDataSourceDAO() throws FileNotFoundException{
+    public static OracleDataSourceDAO getOracleDataSourceDAO() throws FileNotFoundException, IOException{
        FileInputStream fichier = null; 
        
-        try{
+         try {
             
-       Properties props = new Properties();
-       fichier = new FileInputStream( ".\\src\\planning_projection\\dao\\oracle\\connexion.properties");
+            
+            Properties props = new Properties();
+            fichier = new FileInputStream(".\\src\\planning_projection\\dao\\oracle\\connexion.properties");
+            props.load(fichier);
+            props.setProperty("port", "3306");
+            props.setProperty("databasename", "p1700102");
+            props.setProperty("user", "p1700102");
+            props.setProperty("pwd", "294150");
+            props.setProperty("serveur", "iutdoua-web.univ-lyon1.fr");
             ods = new OracleDataSourceDAO();
-            ods.setDriverType("thin");
-            ods.setPortNumber(1521);
-            ods.setServiceName("orcl.univ-lyon1.fr");
-            ods.setUser("p1700102");
-            ods.setPassword("294150");
-            ods.setServerName("iutdoua-oracle.univ-lyon1.fr");
-  
-        }catch (Exception ex) {
+            ods.setPortNumber(new Integer(props.getProperty("port")));
+            ods.setUser(props.getProperty("user"));
+            ods.setDatabaseName(props.getProperty("databasename"));
+            ods.setPassword(props.getProperty("pwd"));
+            ods.setServerName(props.getProperty("serveur"));
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException | SQLException ex) {
             Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+        finally{
+            try {
+                fichier.close();
+            } catch (IOException ex) {
+                Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        
         
         
         return ods;
