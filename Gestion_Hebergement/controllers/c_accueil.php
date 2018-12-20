@@ -6,7 +6,7 @@ if(isset($erreur)){
 require_once(PATH_ENTITY.'UtilisateurDAO.php');
 
 $UDAO = new UtilisateurDAO();
-$users=$UDAO->getUser();
+
 
 
 $page='accueil';

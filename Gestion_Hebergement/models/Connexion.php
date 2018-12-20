@@ -8,8 +8,7 @@ class Connexion
   //appelée par new
   private function __construct ()
   {
-	//$this->_bdd = new PDO('oci:host='.BD_HOST.'; dbname='.BD_DBNAME.'; charset=utf8', BD_USER, BD_PWD);
-  $this->_bdd = new PDO (BD_CONNECT, BD_USER, BD_PWD);
+	$this->_bdd = new PDO('mysql:host='.BD_HOST.'; dbname='.BD_DBNAME.'; charset=utf8', BD_USER, BD_PWD);
 	$this->_bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
 
