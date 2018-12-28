@@ -80,9 +80,12 @@ public class FXMLDocumentController implements Initializable {
             double i=0.0;
             
             if(log==true){
-                progressBar.setProgress(0.5);
-                sleep(1000,5);
-                progressBar.setProgress(1);
+                while(i<10){
+                    progressBar.setProgress(i/10);
+                    sleep(50,5);
+                    i+=1;
+                }
+                
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
