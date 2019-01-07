@@ -15,11 +15,15 @@ public class Projection {
     private String heures;
     private int numProjection;
     private Date date = new Date();
+    private int numPlanning;
+    private int numFilm;
            
-    public Projection(int numProjection,String heures,Date date){
+    public Projection(int numProjection,String heures,Date date,int numPlanning,int numFilm){
         this.numProjection=numProjection;
         this.heures=heures;
         this.date=date;
+        this.numFilm=numFilm;
+        this.numPlanning=numPlanning;
     }
 
     /**
@@ -42,6 +46,9 @@ public class Projection {
     public int getNumProjection() {
         return numProjection;
     }
+    public String toString(){
+        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm ;
+    }
 
     /**
      * @param numProjection the numProjection to set
@@ -62,6 +69,34 @@ public class Projection {
      */
     public void setDate(Date date) {
         this.date = date;
+    }
+
+    /**
+     * @return the numPlanning
+     */
+    public int getNumPlanning() {
+        return numPlanning;
+    }
+
+    /**
+     * @param numPlanning the numPlanning to set
+     */
+    public void setNumPlanning(int numPlanning) {
+        this.numPlanning = numPlanning;
+    }
+
+    /**
+     * @return the numFilm
+     */
+    public int getNumFilm() {
+        return numFilm;
+    }
+
+    /**
+     * @param numFilm the numFilm to set
+     */
+    public void setNumFilm(int numFilm) {
+        this.numFilm = numFilm;
     }
    
 }
