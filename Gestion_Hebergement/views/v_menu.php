@@ -2,30 +2,32 @@
 
 ?>
 
-<nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
-  <div class="container">
-    <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">Start Bootstrap</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarResponsive">
-      <ul class="navbar-nav mx-auto">
-        <li class="nav-item active px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="index.php?page=accueil">Home
-          </a>
-        </li>
-        <li class="nav-item px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="index.php?page=about">About</a>
-        </li>
-        <li class="nav-item px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="products.html">Products</a>
-        </li>
-        <li class="nav-item px-lg-4">
-          <a class="nav-link text-uppercase text-expanded" href="store.html">Store</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<div id="menu ">
+	<ul class="nav">
+		<a href="index.php?page=accueil"><li class="hm">
+			<img class="icon" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/home-24.png" alt="">
+			<span>Accueil</span>
+		</li></a>
+		<a href="index.php?page=addHeberg"><li class="fb">
+			<img class="icon" src="./assets/images/plus.png" alt="">
+			<span>Ajouter un Hebergement</span>
+		</li></a>
+		<a href="index.php?page=addVip"><li class="gp">
+			<img class="icon" src="./assets/images/plus.png" alt="">
+			<span>Ajouter un VIP</span>
+		</li></a>
+		<a href="index.php?page=compte"><li class="tw">
+			<img class="icon" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/social-twitter-24.png" alt="">
+			<span>Mon Compte</span>
+		</li></a>
+		<a href="index.php?page=contact"><li class="cl">
+			<img class="icon" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/phone-24.png" alt="">
+			<span>Contact</span>
+		</li></a>
+	</ul>
+</div>
+
+<hr>
+<hr>
 
 <section class="container-fluid">
