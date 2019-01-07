@@ -5,6 +5,7 @@
  */
 package planning_projection.vue;
 
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import static java.lang.Thread.sleep;
@@ -20,7 +21,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
@@ -35,6 +38,7 @@ import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
 import planning_projection.assets.Connexion;
+import planning_projection.dao.oracle.OraclePlanningDAO;
 /**
  *
  * @author Asus
@@ -43,6 +47,7 @@ public class FXMLDocumentController implements Initializable {
     
     private OracleUtilisateurDAO utilisateur;
     private OracleProjectionDAO projection;
+    private OraclePlanningDAO planning ;
     private OracleDataSourceDAO ods;
     @FXML
     private Button button;
@@ -59,17 +64,15 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane AccueilPane;
     @FXML
-    private TableView<Projection> tableau;
-    @FXML
     private Button buttonPlanning;
     @FXML
     private Button buttonProjection;
     @FXML
     private ProgressIndicator progressBar;
     @FXML
-    private TableColumn<?, ?> C1;
+    private ComboBox<?> comboBox;
     @FXML
-    private TableColumn<?, ?> C2;
+    private ListView<String> listeView;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -89,10 +92,17 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
+                listeView = new ListView();
+                List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
+                LProjection=projection.getLesProjection();
+                for(int ta=0;ta<LProjection.size();ta++){
+                    listeView.getItems().add(LProjection.get(ta).toString());
+                }
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");
             }
+            
              
     }
     
@@ -102,12 +112,15 @@ public class FXMLDocumentController implements Initializable {
         AccueilPane.setVisible(false);
         utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
         projection = new OracleProjectionDAO();//Création de l'Oracle Projection DAO 
+        planning = new OraclePlanningDAO();
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
             utilisateur.setDataSource(ods);//Initialisation du Data Source
             utilisateur.setConnection(ods.getConnection());//
             projection.setDataSource(ods);
             projection.setConnection(ods.getConnection());
+            planning.setDataSource(ods);
+            planning.setConnection(ods.getConnection());
             
         }
         
@@ -115,7 +128,8 @@ public class FXMLDocumentController implements Initializable {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IOException | SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-        }    
+        }
+        
     }
     
     
@@ -147,4 +161,9 @@ public class FXMLDocumentController implements Initializable {
         return con;
     }
 */
+
+    @FXML
+    private void choixComboBox(ActionEvent event) {
+        
+    }
 }

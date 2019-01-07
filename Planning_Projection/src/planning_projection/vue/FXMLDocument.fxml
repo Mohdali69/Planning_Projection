@@ -2,11 +2,11 @@
 
 <?import java.lang.String?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ProgressIndicator?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.effect.MotionBlur?>
@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
       <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
          <children>
@@ -54,12 +54,6 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <TableView fx:id="tableau" layoutX="359.0" layoutY="124.0" prefHeight="606.0" prefWidth="1020.0">
-              <columns>
-                <TableColumn fx:id="C1" prefWidth="75.0" text="C1" />
-                <TableColumn fx:id="C2" prefWidth="75.0" text="C2" />
-              </columns>
-            </TableView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="53.0" layoutY="328.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
             <Button fx:id="buttonProjection" layoutX="77.0" layoutY="475.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
                <font>
@@ -93,6 +87,8 @@
                   </RadialGradient>
                </textFill>
             </Label>
+            <ComboBox fx:id="comboBox" layoutX="377.0" layoutY="122.0" onAction="#choixComboBox" prefWidth="150.0" />
+            <ListView fx:id="listeView" layoutX="377.0" layoutY="201.0" prefHeight="576.0" prefWidth="789.0" />
          </children>
       </Pane>
     </children>

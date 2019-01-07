@@ -48,9 +48,9 @@ public class OracleProjectionDAO implements IProjectionDAO{
         try {
               stmt= connexionBD.createStatement();
               listeProjection = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from PROJECTION");
+              rset = stmt.executeQuery("SELECT * from `Projection`");
               while(rset.next()){
-                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"));
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm")) ;
                 listeProjection.add(newM);
             }
             }catch(SQLException ex){
@@ -68,10 +68,12 @@ public class OracleProjectionDAO implements IProjectionDAO{
     public void creerProjection(Projection Projection){ 
         PreparedStatement state = null;
         try{
-            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO PROJECTION (date,heure,numProjection) VALUES (?,?,?)");
+            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO `Projection` (date,heure,numProjection,numPlanning,numFilm) VALUES (?,?,?,?,?)");
             state.setDate(1, (Date) Projection.getDate());
             state.setString(2,Projection.getHeures());
-            state.setInt(2,Projection.getNumProjection());
+            state.setInt(3,Projection.getNumProjection());
+            state.setInt(4,Projection.getNumPlanning());
+            state.setInt(5,Projection.getNumFilm());
             state.execute();
             state.close();
         }catch(SQLException ex){
@@ -84,10 +86,12 @@ public class OracleProjectionDAO implements IProjectionDAO{
    public void supprimerAdministratif(Projection Projection) {
          PreparedStatement state = null;
         try{
-            state=OracleProjectionDAO.connexionBD.prepareStatement("DELETE FROM PROJECTION WHERE date = ? AND heure = ? AND numProjection = ?");
+            state=OracleProjectionDAO.connexionBD.prepareStatement("DELETE FROM `Projection` WHERE date = ? AND heure = ? AND numProjection = ?");
             state.setDate(1, (Date) Projection.getDate());
             state.setString(2,Projection.getHeures());
-            state.setInt(2,Projection.getNumProjection());
+            state.setInt(3,Projection.getNumProjection());
+            state.setInt(4,Projection.getNumPlanning());
+            state.setInt(5,Projection.getNumFilm());
             state.execute();
             state.close();
         }catch(SQLException ex){
