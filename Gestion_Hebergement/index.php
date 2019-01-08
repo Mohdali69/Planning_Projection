@@ -10,8 +10,7 @@ require_once('./lib/foncBase.php');
 require_once(PATH_TEXTES.LANG.'.php');
 
 //vérification de la page demandée
-
-
+if(isset($_SESSION['aut'])){
 if(isset($_GET['page']))
 {
 
@@ -26,7 +25,9 @@ else{
 
 	$page='accueil'; //page d'accueil du site - http://.../index.php
 }
-
+} else{
+  $page='connexion';
+}
 
 //appel du controller
 require_once(PATH_CONTROLLERS.$page.'.php');

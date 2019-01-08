@@ -92,9 +92,10 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
-                listeView = new ListView();
+                
                 List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
                 LProjection=projection.getLesProjection();
+                listeView.getItems().add("test");
                 for(int ta=0;ta<LProjection.size();ta++){
                     listeView.getItems().add(LProjection.get(ta).toString());
                 }

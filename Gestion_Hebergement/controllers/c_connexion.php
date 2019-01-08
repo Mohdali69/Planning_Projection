@@ -12,7 +12,7 @@ if(isset($_POST['email'])){
   if(isset($_POST['pwd'])){
     foreach($data as $dat){
       if($_POST['email'] == $dat->getLogin()){
-        if(sha1($_POST['pwd'])==$dat->getPass()){
+        if($_POST['pwd']==$dat->getPass()){
           $page='accueil';
           $_SESSION['type']=$dat->getType();
           $_SESSION['id_compte']=$dat->getLogin();
