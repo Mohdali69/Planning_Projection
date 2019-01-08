@@ -46,6 +46,7 @@ public class Projection {
     public int getNumProjection() {
         return numProjection;
     }
+    @Override
     public String toString(){
         return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm ;
     }

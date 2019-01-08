@@ -29,5 +29,8 @@ public class Planning {
     public void setNumPlanning(int numPlanning) {
         this.numPlanning = numPlanning;
     }
+    public String toString(){
+        return "Planning "+numPlanning;
+    }
     
 }

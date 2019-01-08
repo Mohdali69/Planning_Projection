@@ -75,13 +75,15 @@ public class FXMLDocumentController implements Initializable {
     private ComboBox<Planning> comboBox;
     @FXML
     private ListView<Projection> listeView;
+    @FXML
+    private Button afficheButton;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
             boolean log= false;
             progressBar.setProgress(0);
             Connexion con = new Connexion();
-            ListeCombo list = new ListeCombo();
+            ListeCombo LC = new ListeCombo();
             log = con.connexion(login.getText(),mdp.getText(),utilisateur);
             double i=0.0;
             
@@ -95,8 +97,9 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
-                listeView= list.ListeCombo(listeView, projection);
                 
+                
+                comboBox= LC.Combo(comboBox, planning);
                
             }
             else{
@@ -165,10 +168,34 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void choixComboBox(ActionEvent event) {
         
+        
     }
 
     @FXML
     private void buttonTestList(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void buttonAfficheAction(ActionEvent event) {
+        
+        listeView.getItems().remove(0, listeView.getItems().size());
+        int i=0;
+        
+        List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
+        LProjection=projection.getLesProjection();
+        
+            
+            for(int t=0;t<LProjection.size();t++){
+                
+                if(LProjection.get(t).getNumPlanning()==comboBox.getSelectionModel().getSelectedItem().getNumPlanning()){
+                    
+                   listeView.getItems().add(LProjection.get(t));
+                
+                }
+            }    
+            
+        
         
     }
 }

@@ -89,6 +89,7 @@
             </Label>
             <ComboBox fx:id="comboBox" layoutX="119.0" layoutY="175.0" onAction="#choixComboBox" prefWidth="150.0" />
             <ListView fx:id="listeView" layoutX="361.0" layoutY="314.0" orientation="HORIZONTAL" prefHeight="208.0" prefWidth="1019.0" />
+            <Button fx:id="afficheButton" layoutX="290.0" layoutY="175.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
          </children>
       </Pane>
     </children>
