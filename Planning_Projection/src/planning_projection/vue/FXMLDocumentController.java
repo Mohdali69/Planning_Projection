@@ -38,7 +38,9 @@ import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
 import planning_projection.assets.Connexion;
+import planning_projection.assets.ListeCombo;
 import planning_projection.dao.oracle.OraclePlanningDAO;
+import planning_projection.metier.Planning;
 /**
  *
  * @author Asus
@@ -70,15 +72,16 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private ProgressIndicator progressBar;
     @FXML
-    private ComboBox<?> comboBox;
+    private ComboBox<Planning> comboBox;
     @FXML
-    private ListView<String> listeView;
+    private ListView<Projection> listeView;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
             boolean log= false;
             progressBar.setProgress(0);
             Connexion con = new Connexion();
+            ListeCombo list = new ListeCombo();
             log = con.connexion(login.getText(),mdp.getText(),utilisateur);
             double i=0.0;
             
@@ -92,12 +95,9 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
-                listeView = new ListView();
-                List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
-                LProjection=projection.getLesProjection();
-                for(int ta=0;ta<LProjection.size();ta++){
-                    listeView.getItems().add(LProjection.get(ta).toString());
-                }
+                listeView= list.ListeCombo(listeView, projection);
+                
+               
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");
@@ -164,6 +164,11 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void choixComboBox(ActionEvent event) {
+        
+    }
+
+    @FXML
+    private void buttonTestList(ActionEvent event) {
         
     }
 }
