@@ -62,7 +62,7 @@
                <effect>
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect></Button>
-            <Button id="button" fx:id="buttonPlanning" layoutX="77.0" layoutY="407.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
+            <Button id="button" fx:id="buttonPlanning" layoutX="77.0" layoutY="407.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
                <font>
                   <Font size="21.0" />
                </font>
@@ -87,8 +87,8 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ComboBox fx:id="comboBox" layoutX="377.0" layoutY="122.0" onAction="#choixComboBox" prefWidth="150.0" />
-            <ListView fx:id="listeView" layoutX="377.0" layoutY="201.0" prefHeight="576.0" prefWidth="789.0" />
+            <ComboBox fx:id="comboBox" layoutX="119.0" layoutY="175.0" onAction="#choixComboBox" prefWidth="150.0" />
+            <ListView fx:id="listeView" layoutX="361.0" layoutY="314.0" orientation="HORIZONTAL" prefHeight="208.0" prefWidth="1019.0" />
          </children>
       </Pane>
     </children>
