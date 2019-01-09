@@ -95,19 +95,9 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
-<<<<<<< HEAD
-                
-                List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
-                LProjection=projection.getLesProjection();
-                listeView.getItems().add("test");
-                for(int ta=0;ta<LProjection.size();ta++){
-                    listeView.getItems().add(LProjection.get(ta).toString());
-                }
-=======
-                listeView= list.ListeCombo(listeView, projection);
                 
                
->>>>>>> 61a9626dd556bee786bffc086a2e7a30fdf342e6
+
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");
