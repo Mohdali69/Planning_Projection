@@ -98,7 +98,6 @@ public class FXMLDocumentController implements Initializable {
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
 
-
                 
                 comboBox= LC.Combo(comboBox, planning);
                
