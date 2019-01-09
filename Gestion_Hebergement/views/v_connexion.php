@@ -1,13 +1,12 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <!-- Include the above in your HEAD tag ---------->
 
 <!-- All the files that are required -->
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.13.1/jquery.validate.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 <?php
 
 //  En tête de page
@@ -27,35 +26,78 @@ if(isset($err)){
 
 
 
-<!-- LOGIN FORM -->
-<div class="text-center" style="padding:50px 0">
-	<div class="logo">Connexion</div>
-	<!-- Main Form -->
-	<div class="login-form-1">
-		<form id="login-form" class="text-left" method="POST" action="index.php?page=connexion">
-			<div class="login-form-main-message"></div>
-			<div class="main-login-form">
-				<div class="login-group">
-					<div class="form-group">
-						<label for="email" class="sr-only">Username</label>
-						<input type="text" class="form-control" id="email" name="email" placeholder="username">
-					</div>
-					<div class="form-group">
-						<label for="pwd" class="sr-only">Password</label>
-						<input type="password" class="form-control" id="pwd" name="pwd" placeholder="password">
-					</div>
-					<div class="form-group login-group-checkbox">
-						<input type="checkbox" id="lg_remember" name="lg_remember">
-						<label for="lg_remember">remember</label>
-					</div>
-				</div>
-				<button type="submit" class="login-button"><i class="fa fa-chevron-right"></i></button>
-			</div>
 
-		</form>
-	</div>
-	<!-- end:Main Form -->
-</div>
+?>
+    <section class="login-block">
+        <div class="container">
+    	<div class="row">
+    		<div class="col-md-4 login-sec">
+    		    <h2 class="text-center">Connexion</h2>
+          		    <form class="login-form" method="post" action="index.php?page=connexion">
+                              <div class="form-group">
+                                <label for="exampleInputEmail1" class="text-uppercase">Identifiant</label>
+                                <input type="text" class="form-control" placeholder="" id="email" name="email">
+
+                              </div>
+                              <div class="form-group">
+                                <label for="exampleInputPassword1" class="text-uppercase">Password</label>
+                                <input type="password" class="form-control" placeholder="" name="pwd" id="pwd">
+                              </div>
+
+
+                                <div class="form-check">
+                                <label class="form-check-label">
+                                  <input type="checkbox" class="form-check-input">
+                                  <small>Se souvenir de moi</small>
+                                </label>
+                                <button type="submit" class="btn btn-login float-right">Valider</button>
+                              </div>
+
+          </form>
+    <div class="copy-text">Redwan Kara/Mohamed-Ali Beldjilali <i class="fa fa-link"></i> <a href="https://iutdoua-web.univ-lyon1.fr/~p1700102/Vitrine/index.php?page=accueil">RedwanKara.com</a> | <a href="https://mohamedalib.pb.design">Mohamed-Ali Beldjilali</a></div>
+    		</div>
+    		<div class="col-md-8 banner-sec">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                     <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                      </ol>
+                <div class="carousel-inner" role="listbox">
+        <div class="carousel-item active">
+          <img class="d-block img-fluid" src="./assets/images/background_movie.png" alt="Courts-métrages">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+                <h2>Courts-métrages</h2>
+
+            </div>
+      </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block img-fluid" src="./assets/images/movieLM.png" alt="Longs-métrages">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+                <h2>Longs-métrages</h2>
+
+            </div>
+        </div>
+        </div>
+        <div class="carousel-item">
+          <img class="d-block img-fluid" src="./assets/images/UCR.jpg" alt="Un Certain Regard">
+          <div class="carousel-caption d-none d-md-block">
+            <div class="banner-text">
+                <h2>Un Certain Regard</h2>
+
+            </div>
+        </div>
+      </div>
+                </div>
+
+    		</div>
+    	</div>
+    </div>
+    </section>
+
 
 <?php
 if(isset($_SESSION['autorisation'])){

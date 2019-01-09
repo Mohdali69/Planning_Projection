@@ -9,12 +9,19 @@ body {
 
 .view-group {
     display: -ms-flexbox;
-    display: flex;
+    display: inline-flex;
     -ms-flex-direction: row;
     flex-direction: row;
     padding-left: 0;
     margin-bottom: 0;
+    width : 100%;
+    background-color: rgba(255,8,14,0.1);
+    padding-top:2%;
 }
+#title{
+  color:white;
+}
+
 .thumbnail
 {
     margin-bottom: 30px;
@@ -22,13 +29,17 @@ body {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
+      background-color:rgba(255,255,255,0.1);
 }
-
+.card-body{
+  background-color: rgba(192,192,192,1);
+  border-radius: 0.5em;
+}
 .item.list-group-item
 {
     float: none;
     width: 100%;
-    background-color: #fff;
+    background-color: rgba(0,0,0,0.1);
     margin-bottom: 30px;
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
@@ -66,4 +77,8 @@ body {
 .item.list-group-item:after
 {
     clear: both;
+}
+
+.thumbnail{
+
 }

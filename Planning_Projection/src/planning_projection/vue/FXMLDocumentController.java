@@ -97,10 +97,12 @@ public class FXMLDocumentController implements Initializable {
                 connexionPanel.setVisible(true);
                 ConnexionPane.setVisible(false);
                 AccueilPane.setVisible(true);
-                
+
+
                 
                 comboBox= LC.Combo(comboBox, planning);
                
+
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");

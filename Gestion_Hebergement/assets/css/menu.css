@@ -3,11 +3,7 @@
   font-family: Raleway;
   src:url('https://fonts.googleapis.com/css?family=Raleway');
 }
-*{
-	margin:0;
-	padding:0;
-	box-sizing:
-}
+
 
 ul li{
 	list-style:none;
@@ -20,11 +16,17 @@ h1{
 }
 #menu{
   font-family:Raleway;
-  position: fixed;
+  background-color: rgba(191,191,191,0.03);
+
+}
+#logo{
+  position : relative;
+  float : left;
+  width : 19%;
 }
 .nav{
 	overflow:hidden;
-	margin:0 auto;
+	margin:0 33%;
 	width:750px;
 }
 .nav li{

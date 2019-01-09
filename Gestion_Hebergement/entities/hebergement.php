@@ -10,7 +10,7 @@ private $services;
 private $places_restantes;
 private $nom;
 
-//Constructeur de la Class Film
+
 function __construct($id, $type, $adresse, $numero, $c, $serv, $pr,$nom){
   $this->identifiant = $id;
   $this->type = $type;
@@ -54,9 +54,7 @@ public function getNom(){
   return $this->nom;
 }
 
-public function setLendemain($ld){
-  $this->lendemain = $ld;
-}
+
 
 }
 
