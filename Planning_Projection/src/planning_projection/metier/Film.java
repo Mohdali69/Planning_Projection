@@ -19,13 +19,14 @@ public class Film {
     private int lendemain;
     private int numFilm;
     
-    public Film(String titre,int durée,String realisateur,String pays,int nbProjection,int lendemain,int numFilm){
+    public Film(String titre,int durée,String realisateur,String pays,String comp,int nbProjection,int lendemain,int numFilm){
         this.titre=titre;
         this.realisateur=realisateur;
         this.durée=durée;
         this.lendemain=lendemain;
         this.numFilm=numFilm;
         this.nbProjection=nbProjection;
+        this.competition = comp;
         this.pays=pays;
     }
 
