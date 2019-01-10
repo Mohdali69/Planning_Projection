@@ -17,7 +17,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.FadeTransition;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -32,6 +34,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
+import javafx.util.Duration;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
 import planning_projection.metier.Projection;   
 import planning_projection.metier.Utilisateur;
@@ -88,15 +91,15 @@ public class FXMLDocumentController implements Initializable {
             double i=0.0;
             
             if(log==true){
-                while(i<10){
+                while(i<=10){
                     progressBar.setProgress(i/10);
                     sleep(50,5);
                     i+=1;
                 }
                 
-                connexionPanel.setVisible(true);
-                ConnexionPane.setVisible(false);
-                AccueilPane.setVisible(true);
+                makeFadeOutCon();
+                
+                
 
                 
                 comboBox= LC.Combo(comboBox, planning);
@@ -199,4 +202,24 @@ public class FXMLDocumentController implements Initializable {
         
         
     }
+    public void makeFadeOutCon() {
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(ConnexionPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                loadAccueilPane();
+            }
+        });
+        fadeTransition.play();
+        
+        
+       
+    }
+        public void loadAccueilPane() {
+            AccueilPane.setVisible(true);
+        }
 }
