@@ -41,6 +41,7 @@ import planning_projection.metier.Utilisateur;
 import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
 import planning_projection.assets.Connexion;
+import planning_projection.assets.GenerationPlanning;
 import planning_projection.assets.ListeCombo;
 import planning_projection.dao.oracle.OraclePlanningDAO;
 import planning_projection.metier.Planning;
@@ -177,7 +178,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonTestList(ActionEvent event) {
-        
+        GenerationPlanning GP = new GenerationPlanning();
+        GP.generation(0);
     }
 
     @FXML

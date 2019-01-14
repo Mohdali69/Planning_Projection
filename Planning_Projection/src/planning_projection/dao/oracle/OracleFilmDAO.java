@@ -48,9 +48,9 @@ public class OracleFilmDAO implements IFilmDAO{
         try {
               stmt= connexionBD.createStatement();
               listeFilm = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from FILM");
+              rset = stmt.executeQuery("SELECT * from Film");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeFilm.add(film);
             }
             }catch(SQLException ex){
@@ -68,9 +68,9 @@ public class OracleFilmDAO implements IFilmDAO{
         try {
               stmt= connexionBD.createStatement();
               listeLM = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from FILM where competition = Long-metrage");
+              rset = stmt.executeQuery("SELECT * from Film where competition = 'Long-metrage'");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeLM.add(film);
             }
             }catch(SQLException ex){
@@ -88,9 +88,9 @@ public class OracleFilmDAO implements IFilmDAO{
         try {
               stmt= connexionBD.createStatement();
               listeUCR= new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from FILM where competition = UCR");
+              rset = stmt.executeQuery("SELECT * from Film where competition = 'UCR'");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeUCR.add(film);
             }
             }catch(SQLException ex){
@@ -108,9 +108,9 @@ public class OracleFilmDAO implements IFilmDAO{
         try {
               stmt= connexionBD.createStatement();
               listeLM = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from FILM where competition = Hors-Competition");
+              rset = stmt.executeQuery("SELECT * from Film where competition = 'Hors-Competition'");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeLM.add(film);
             }
             }catch(SQLException ex){
@@ -128,9 +128,9 @@ public class OracleFilmDAO implements IFilmDAO{
         try {
               stmt= connexionBD.createStatement();
               listeCM = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from FILM where competition = Court-metrage");
+              rset = stmt.executeQuery("SELECT * from Film where competition = 'Court-metrage'");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeCM.add(film);
             }
             }catch(SQLException ex){
