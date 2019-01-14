@@ -14,11 +14,7 @@ import java.util.Date;
 public class Projection {
     private String heures;
     private int numProjection;
-<<<<<<< HEAD
-    private Date date = new Date();
-=======
     private Date date;
->>>>>>> 29bb5c11d2799b0481f366a2a3f4e57766488ec9
     private int numPlanning;
     private int numFilm;
     private int numSalle;
@@ -56,12 +52,9 @@ public class Projection {
     }
     @Override
     public String toString(){
-<<<<<<< HEAD
+
         return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle ;
-=======
-        
-        return "Date :" + date +"\n"+"Heure :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle+"\n";
->>>>>>> 29bb5c11d2799b0481f366a2a3f4e57766488ec9
+
     }
 
     /**
