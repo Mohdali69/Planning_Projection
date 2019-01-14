@@ -6,7 +6,7 @@
 package planning_projection.metier;
 
 import java.util.Date;
-
+import planning_projection.metier.Film;
 /**
  *
  * @author Asus
@@ -14,14 +14,14 @@ import java.util.Date;
 public class Projection {
     private String heures;
     private int numProjection;
-    private Date date = new Date();
+    private String date;
     private int numPlanning;
     private int numFilm;
     private int numSalle;
-
+    private Film film;
     
            
-    public Projection(int numProjection,String heures,Date date,int numPlanning,int numFilm, int numSalle){
+    public Projection(int numProjection,String heures,String date,int numPlanning,int numFilm, int numSalle){
         this.numProjection=numProjection;
         this.heures=heures;
         this.date=date;
@@ -52,7 +52,8 @@ public class Projection {
     }
     @Override
     public String toString(){
-        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle ;
+        
+        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle+"\n"+film.toString();
     }
 
     /**
@@ -65,14 +66,14 @@ public class Projection {
     /**
      * @return the date
      */
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
     public int getNumSalle() {

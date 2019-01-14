@@ -26,8 +26,8 @@ import planning_projection.vue.FXMLDocumentController;
  * @author Asus
  */
 public class ConnexionTest {
-    String goodlogin = "test";
-    String goodmdp = "test";
+    String goodlogin = "test2";
+    String goodmdp = "test2";
     String badlogin = "mauvais";
     String badmdp = "mauvais";
     

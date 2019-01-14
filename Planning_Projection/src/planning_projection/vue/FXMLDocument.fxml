@@ -21,7 +21,7 @@
     <children>
       <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" layoutX="-3.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
                <fill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -32,14 +32,27 @@
                </fill>
             </Rectangle>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfbfb" height="310.0" layoutX="535.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
-            <TextField fx:id="login" layoutX="627.0" layoutY="322.0" />
-            <PasswordField fx:id="mdp" layoutX="630.0" layoutY="392.0">
+            <TextField fx:id="login" layoutX="645.0" layoutY="322.0" />
+            <PasswordField fx:id="mdp" layoutX="647.0" layoutY="392.0">
                <effect>
                   <MotionBlur />
                </effect></PasswordField>
               <Button fx:id="button" layoutX="762.0" layoutY="489.0" onAction="#handleButtonAction" text="Se Connecter" />
             <Label fx:id="message" layoutX="545.0" layoutY="490.0" prefHeight="34.0" prefWidth="209.0" />
             <ProgressIndicator fx:id="progressBar" layoutX="694.0" layoutY="443.0" progress="0.0" />
+            <Label layoutX="614.0" layoutY="274.0" prefHeight="34.0" prefWidth="220.0" text="     Connectez-Vous ">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.4666666666666667" centerY="0.5571428571428572" focusAngle="-11.07" focusDistance="0.13953488372093026" radius="0.7906976744186047">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
          </children>
       </Pane>
       <Pane fx:id="AccueilPane" prefHeight="862.0" prefWidth="1442.0">
@@ -54,15 +67,15 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="53.0" layoutY="328.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
-            <Button fx:id="buttonProjection" layoutX="77.0" layoutY="475.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="41.0" layoutY="328.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
+            <Button fx:id="buttonProjection" layoutX="71.0" layoutY="475.0" mnemonicParsing="false" onAction="#buttonProjectionAction" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
                <font>
                   <Font size="21.0" />
                </font>
                <effect>
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect></Button>
-            <Button id="button" fx:id="buttonPlanning" layoutX="77.0" layoutY="407.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
+            <Button id="button" fx:id="buttonPlanning" layoutX="71.0" layoutY="407.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
                <font>
                   <Font size="21.0" />
                </font>
@@ -88,8 +101,37 @@
                </textFill>
             </Label>
             <ComboBox fx:id="comboBox" layoutX="119.0" layoutY="175.0" onAction="#choixComboBox" prefWidth="150.0" />
-            <ListView fx:id="listeView" layoutX="361.0" layoutY="314.0" orientation="HORIZONTAL" prefHeight="208.0" prefWidth="1019.0" />
+            <ListView fx:id="listeView" layoutX="349.0" layoutY="327.0" orientation="HORIZONTAL" prefHeight="217.0" prefWidth="1054.0" />
             <Button fx:id="afficheButton" layoutX="290.0" layoutY="175.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+         </children>
+      </Pane>
+      <Pane fx:id="ProjectionPane" prefHeight="878.0" prefWidth="1480.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
+            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
+                     <stops>
+                        <Stop color="#f2f2f2" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="64.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-image: retour.png;" text="Button" />
          </children>
       </Pane>
     </children>

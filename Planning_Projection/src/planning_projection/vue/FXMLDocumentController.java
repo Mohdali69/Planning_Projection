@@ -42,7 +42,9 @@ import planning_projection.dao.oracle.OracleUtilisateurDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
 import planning_projection.assets.Connexion;
 import planning_projection.assets.ListeCombo;
+import planning_projection.dao.oracle.OracleFilmDAO;
 import planning_projection.dao.oracle.OraclePlanningDAO;
+import planning_projection.metier.Film;
 import planning_projection.metier.Planning;
 /**
  *
@@ -80,6 +82,9 @@ public class FXMLDocumentController implements Initializable {
     private ListView<Projection> listeView;
     @FXML
     private Button afficheButton;
+    @FXML
+    private Pane ProjectionPane;
+    private OracleFilmDAO film;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -116,7 +121,9 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        ProjectionPane.setVisible(false);
         AccueilPane.setVisible(false);
+        film = new OracleFilmDAO();
         utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
         projection = new OracleProjectionDAO();//Création de l'Oracle Projection DAO 
         planning = new OraclePlanningDAO();
@@ -188,12 +195,14 @@ public class FXMLDocumentController implements Initializable {
         
         List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
         LProjection=projection.getLesProjection();
+        List<Film> LFilm = new ArrayList();
+        LFilm = film.getLesFilms();
         
             
             for(int t=0;t<LProjection.size();t++){
                 
                 if(LProjection.get(t).getNumPlanning()==comboBox.getSelectionModel().getSelectedItem().getNumPlanning()){
-                    
+                   
                    listeView.getItems().add(LProjection.get(t));
                 
                 }
@@ -222,4 +231,30 @@ public class FXMLDocumentController implements Initializable {
         public void loadAccueilPane() {
             AccueilPane.setVisible(true);
         }
+        
+       public void makeFadeOutProjection(){
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(AccueilPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                loadProjectionPane();
+            }
+        });
+        fadeTransition.play();
+        
+           
+       }
+       
+       public void loadProjectionPane(){ 
+           ProjectionPane.setVisible(true);
+        }
+
+    @FXML
+    private void buttonProjectionAction(ActionEvent event) {
+        makeFadeOutProjection();
+    }
 }
