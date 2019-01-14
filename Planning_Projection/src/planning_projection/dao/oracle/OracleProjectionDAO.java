@@ -50,7 +50,7 @@ public class OracleProjectionDAO implements IProjectionDAO{
               listeProjection = new ArrayList<>();
               rset = stmt.executeQuery("SELECT * from `Projection`");
               while(rset.next()){
-                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getString("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
                 listeProjection.add(newM);
             }
             }catch(SQLException ex){
@@ -73,7 +73,8 @@ public class OracleProjectionDAO implements IProjectionDAO{
             state.setString(1,Projection.getDate().toString());
 
             state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO Projection (date,heure,numProjection,numPlanning,numFilm, numSalle) VALUES (?,?,?,?,?,?)");
-            state.setString(1, Projection.getDate().toString());
+            java.sql.Date date = new java.sql.Date(Projection.getDate().getTime());
+            state.setDate(1, date);
 
             state.setString(2,Projection.getHeures());
             state.setInt(3,Projection.getNumProjection());
