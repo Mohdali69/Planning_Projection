@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 import planning_projection.dao.IFilmDAO;
 import planning_projection.metier.Film;
+import planning_projection.metier.Projection;
 
 /**
  *
@@ -140,7 +141,23 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeCM ;
     }
-
+   public Film getUnFilm(Film Film) {
+       ResultSet rset = null;
+       Film film = null;
+        try {
+            PreparedStatement state = null;
+            state=OracleFilmDAO.connexionBD.prepareStatement("SELECT FROM Film WHERE numFilm = ?");
+            state.setInt(1,Film.getNumFilm());
+            state.execute();
+            rset = state.executeQuery();
+            film = new Film(rset.getString("titre"), rset.getInt("duree"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjections"),rset.getInt("lendemain"),rset.getInt("numFilm"));           
+            state.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(OracleFilmDAO.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return film;
+            
+      }
    
    public int procedure() throws SQLException{
        String sql = "{? = call nombre_bus";

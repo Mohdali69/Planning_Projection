@@ -104,6 +104,28 @@ public class OracleProjectionDAO implements IProjectionDAO{
            Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+   public List<Projection> getLesProjectionetFilms() {
+        ResultSet rset = null; 
+        Statement stmt = null;
+        List<Projection> listeProjection = null; 
+        try {
+              stmt= connexionBD.createStatement();
+              listeProjection = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from `Projection`,Film WHERE Film.numFilm=='Projection'.numFilm");
+              while(rset.next()){
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
+                listeProjection.add(newM);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeProjection ;
+        
+        
+        
+    }
    public int procedure() throws SQLException{
        String sql = "{? = call nombre_bus";
        CallableStatement state = connexionBD.prepareCall(sql);
