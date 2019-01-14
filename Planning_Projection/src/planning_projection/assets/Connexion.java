@@ -27,6 +27,7 @@ public class Connexion {
                 if(user.getUser().equals(login)){//Si ce que l'on a ecrit correspond à ce que contient la List
                     if(user.getPassword().equals(mdp)){
                         con = true;//code connexion
+                        return con;
                     }
                     else{//Sinon 
                         con = false;//traitement erreur mdp
