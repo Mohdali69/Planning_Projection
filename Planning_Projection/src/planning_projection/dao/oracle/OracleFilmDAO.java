@@ -50,7 +50,7 @@ public class OracleFilmDAO implements IFilmDAO{
               listeFilm = new ArrayList<>();
               rset = stmt.executeQuery("SELECT * from FILM");
               while(rset.next()){
-                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
                 listeFilm.add(film);
             }
             }catch(SQLException ex){
@@ -58,13 +58,88 @@ public class OracleFilmDAO implements IFilmDAO{
             }
               
         
-        return listeFilm ;
-        
-        
-        
+        return listeFilm ;   
     }
     
+    public List<Film> getLM() {
+        ResultSet rset = null; 
+        Statement stmt = null;
+        List<Film> listeLM = null; 
+        try {
+              stmt= connexionBD.createStatement();
+              listeLM = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from FILM where competition = Long-metrage");
+              while(rset.next()){
+                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                listeLM.add(film);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleFilmDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeLM ;  
+    }
+    
+    public List<Film> getUCR() {
+        ResultSet rset = null; 
+        Statement stmt = null;
+        List<Film> listeUCR = null; 
+        try {
+              stmt= connexionBD.createStatement();
+              listeUCR= new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from FILM where competition = UCR");
+              while(rset.next()){
+                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                listeUCR.add(film);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleFilmDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeUCR ;
+    }
+    
+    public List<Film> getHC() {
+        ResultSet rset = null; 
+        Statement stmt = null;
+        List<Film> listeLM = null; 
+        try {
+              stmt= connexionBD.createStatement();
+              listeLM = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from FILM where competition = Hors-Competition");
+              while(rset.next()){
+                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                listeLM.add(film);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleFilmDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeLM ;  
+    }
 
+    public List<Film> getCM() {
+        ResultSet rset = null; 
+        Statement stmt = null;
+        List<Film> listeCM = null; 
+        try {
+              stmt= connexionBD.createStatement();
+              listeCM = new ArrayList<>();
+              rset = stmt.executeQuery("SELECT * from FILM where competition = Court-metrage");
+              while(rset.next()){
+                Film film = new Film(rset.getString("titre"), rset.getInt("durée"),rset.getString("realisateur"),rset.getString("pays"),rset.getString("competition"),rset.getInt("nbProjection"),rset.getInt("lendemain"),rset.getInt("numFilm"));
+                listeCM.add(film);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleFilmDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeCM ;
+    }
 
    
    public int procedure() throws SQLException{

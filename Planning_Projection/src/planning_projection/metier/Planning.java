@@ -5,12 +5,18 @@
  */
 package planning_projection.metier;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  *
  * @author Asus
  */
 public class Planning {
     private int numPlanning;
+    private List<Projection> listeProjection = new ArrayList<>();
+
+   
     
     public Planning(int numPlanning){
         this.numPlanning=numPlanning;
@@ -28,6 +34,16 @@ public class Planning {
      */
     public void setNumPlanning(int numPlanning) {
         this.numPlanning = numPlanning;
+        
+        
+    }
+    
+     public List<Projection> getListeProjection() {
+        return listeProjection;
+    }
+
+    public void setListeProjection(List<Projection> listeProjection) {
+        this.listeProjection = listeProjection;
     }
     public String toString(){
         return "Planning "+numPlanning;

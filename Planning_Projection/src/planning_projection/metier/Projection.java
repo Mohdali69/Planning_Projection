@@ -17,13 +17,17 @@ public class Projection {
     private Date date = new Date();
     private int numPlanning;
     private int numFilm;
+    private int numSalle;
+
+    
            
-    public Projection(int numProjection,String heures,Date date,int numPlanning,int numFilm){
+    public Projection(int numProjection,String heures,Date date,int numPlanning,int numFilm, int numSalle){
         this.numProjection=numProjection;
         this.heures=heures;
         this.date=date;
         this.numFilm=numFilm;
         this.numPlanning=numPlanning;
+        this.numSalle=numSalle;
     }
 
     /**
@@ -48,7 +52,7 @@ public class Projection {
     }
     @Override
     public String toString(){
-        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm ;
+        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle ;
     }
 
     /**
@@ -71,7 +75,13 @@ public class Projection {
     public void setDate(Date date) {
         this.date = date;
     }
+    public int getNumSalle() {
+        return numSalle;
+    }
 
+    public void setNumSalle(int numSalle) {
+        this.numSalle = numSalle;
+    }
     /**
      * @return the numPlanning
      */
