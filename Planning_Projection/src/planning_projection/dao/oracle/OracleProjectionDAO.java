@@ -50,7 +50,7 @@ public class OracleProjectionDAO implements IProjectionDAO{
               listeProjection = new ArrayList<>();
               rset = stmt.executeQuery("SELECT * from `Projection`");
               while(rset.next()){
-                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getString("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
                 listeProjection.add(newM);
             }
             }catch(SQLException ex){
