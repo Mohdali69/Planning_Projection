@@ -14,14 +14,14 @@ import planning_projection.metier.Film;
 public class Projection {
     private String heures;
     private int numProjection;
-    private String date;
+    private Date date;
     private int numPlanning;
     private int numFilm;
     private int numSalle;
     private Film film;
     
            
-    public Projection(int numProjection,String heures,String date,int numPlanning,int numFilm, int numSalle){
+    public Projection(int numProjection,String heures,Date date,int numPlanning,int numFilm, int numSalle){
         this.numProjection=numProjection;
         this.heures=heures;
         this.date=date;
@@ -53,7 +53,7 @@ public class Projection {
     @Override
     public String toString(){
         
-        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle+"\n"+film.toString();
+        return "Date :" + date +"\n"+"Heure :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle+"\n";
     }
 
     /**
@@ -66,14 +66,14 @@ public class Projection {
     /**
      * @return the date
      */
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
     /**
      * @param date the date to set
      */
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
     public int getNumSalle() {

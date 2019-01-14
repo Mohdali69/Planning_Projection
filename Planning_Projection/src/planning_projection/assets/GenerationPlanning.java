@@ -69,7 +69,9 @@ public class GenerationPlanning {
     //Algorithme Principal de la génération de planning
     public Planning generation(int numPlanning){
         Date day = new Date(119,4,13,8,0);
-        String dat = "1er chibre";
+        
+        java.sql.Date date = new java.sql.Date(day.getTime()); 
+        
         List<Film> LMDay = new ArrayList<>();
         int nLM = 0;
         int compteur = 1;
@@ -103,9 +105,9 @@ public class GenerationPlanning {
                             
                             if(day.getHours()<=23 && day.getMinutes()<30){
                                 String heure = day.getHours() +"h"+ day.getMinutes();
-                                Projection p = new Projection(i, heure, dat, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
+                                Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
                                 OPD.creerProjection(p);
-                                addMin(day, movie.getDurée());
+                                day=addMin(day, movie.getDurée());
                                 nLM++;
                                 LMDay.add(movie);
                                 movie.setNbProjection(movie.getNbProjection()+1);
@@ -118,9 +120,9 @@ public class GenerationPlanning {
                             
                             if(day.getHours()<=23 && day.getMinutes()<30){
                                 String heure = day.getHours() +"h"+ day.getMinutes();
-                                Projection p = new Projection(i, heure, dat, numPlanning, movie.getNumFilm(), 0 );
+                                Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 );
                                 OPD.creerProjection(p);
-                                addMin(day, movie.getDurée());
+                                day = addMin(day, movie.getDurée());
                                 movie.setNbProjection(movie.getNbProjection()+1);
                                 movie.setLendemain(2);
                                 i++;
@@ -138,9 +140,9 @@ public class GenerationPlanning {
                         
                         if(day.getHours()<=23 && day.getMinutes()<30){
                             String heure = day.getHours() +"h"+ day.getMinutes();
-                            Projection p = new Projection(i, heure, dat, numPlanning, movie.getNumFilm(), 0 );
+                            Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 );
                             OPD.creerProjection(p);
-                            addMin(day, movie.getDurée());
+                            day = addMin(day, movie.getDurée());
                             movie.setNbProjection(movie.getNbProjection()+1);
                             movie.setLendemain(1);
                             i++;
@@ -159,9 +161,9 @@ public class GenerationPlanning {
                         if(day.getHours()<=23 && day.getMinutes()<30){
                             
                             String heure = day.getHours() +"h"+ day.getMinutes();
-                            Projection p = new Projection(i, heure, dat, numPlanning, movie.getNumFilm(), 1 ); //le numSalle des UCR est 1
+                            Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 1 ); //le numSalle des UCR est 1
                             OPD.creerProjection(p);
-                            addMin(day, movie.getDurée());
+                            day = addMin(day, movie.getDurée());
                             movie.setNbProjection(movie.getNbProjection()+1);
                             movie.setLendemain(1);
                             i++;
@@ -175,9 +177,9 @@ public class GenerationPlanning {
                         if(day.getHours()<=23 && day.getMinutes()<30){
                             
                             String heure = day.getHours() +"h"+ day.getMinutes();
-                            Projection p = new Projection(i, heure, dat, numPlanning, movie.getNumFilm(), 1 ); //le numSalle des UCR est 1
+                            Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 1 ); //le numSalle des UCR est 1
                             OPD.creerProjection(p);
-                            addMin(day, movie.getDurée());
+                            day = addMin(day, movie.getDurée());
                             movie.setNbProjection(movie.getNbProjection()+1);
                             movie.setLendemain(2);
                             i++;
@@ -187,6 +189,7 @@ public class GenerationPlanning {
                     
                 }//end for   
             }//end if les UCR sont placés, principale + lendemain
+            day = addDay(day);
             System.out.println("zobzob");
         }//end for
         return null;

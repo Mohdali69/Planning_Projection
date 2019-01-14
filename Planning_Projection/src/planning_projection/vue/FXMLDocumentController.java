@@ -150,32 +150,7 @@ public class FXMLDocumentController implements Initializable {
     
     
     
-    /*
-   
-    public boolean connexion(String login,String mdp){
-        boolean con=false;//Création d'un boolean afin de tester la connexion
-        List<Utilisateur> LUtilisateur = new ArrayList();//Création d'une Liste d'Utilisateur
-        LUtilisateur=utilisateur.getUsers();//Liste d'Utilisateur Rempli depuis la BD (getUsers() methode qui importe les données de la BD)
-        for(Utilisateur user : LUtilisateur){//Utilisation d'un foreach afin de parcourir la List 
-                if(user.getUser().equals(login)){//Si ce que l'on a ecrit correspond à ce que contient la List
-                    if(user.getPassword().equals(mdp)){
-                        con = true;//code connexion
-                        message.setText("Connexion Reussie");
-                        connexionPanel.setVisible(false);
-                    }
-                    else{//Sinon 
-                        con = false;//traitement erreur mdp
-                        message.setText("Mauvais Mot de Passe");
-                    }
-                }
-                else{
-                    con = false;//traitement erreur login 
-                    message.setText("Mauvais Login");
-                }
-            }
-        return con;
-    }
-*/
+  
 
     @FXML
     private void choixComboBox(ActionEvent event) {
@@ -197,16 +172,16 @@ public class FXMLDocumentController implements Initializable {
         
         List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
         LProjection=projection.getLesProjection();
-        List<Film> LFilm = new ArrayList();
-        LFilm = film.getLesFilms();
+        //List<Film> LFilm = new ArrayList();
+        //LFilm = film.getLesFilms();
         
             
             for(int t=0;t<LProjection.size();t++){
                 
                 if(LProjection.get(t).getNumPlanning()==comboBox.getSelectionModel().getSelectedItem().getNumPlanning()){
-                   
-                   listeView.getItems().add(LProjection.get(t));
-                
+                   //if(LProjection.get(t).getNumFilm()==LFilm.get(t).getNumFilm()){
+                       listeView.getItems().add(LProjection.get(t));
+                   //}
                 }
             }    
             
