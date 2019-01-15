@@ -9,14 +9,19 @@
 			<img class="icon" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/home-24.png" alt="">
 			<span>Accueil</span>
 		</li></a>
-		<a href="index.php?page=addHeberg"><li class="fb">
-			<img class="icon" src="./assets/images/plus.png" alt="">
-			<span>Ajouter un Hebergement</span>
-		</li></a>
-		<a href="index.php?page=addVip"><li class="gp">
-			<img class="icon" src="./assets/images/plus.png" alt="">
-			<span>Ajouter un VIP</span>
-		</li></a>
+		<?php if(isset($_SESSION['aut']) and $_SESSION['type'] == 'gerant' ){
+          echo   '<a href="index.php?page=addHeberg"><li class="fb">
+						<img class="icon" src="./assets/images/plus.png" alt="">
+						<span>Ajouter un Hebergement</span>
+					</li></a>';}
+        ?>
+		<?php if(isset($_SESSION['aut']) and $_SESSION['type'] == 'gerant' ){
+		          echo   '<a href="index.php?page=addVip"><li class="gp">
+								<img class="icon" src="./assets/images/plus.png" alt="">
+								<span>Actualiser nombre places</span>
+							</li></a>';}
+		        ?>
+
 		<a href="index.php?page=compte"><li class="tw">
 			<img class="icon" src="https://cdn0.iconfinder.com/data/icons/typicons-2/24/social-twitter-24.png" alt="">
 			<span>Mon Compte</span>

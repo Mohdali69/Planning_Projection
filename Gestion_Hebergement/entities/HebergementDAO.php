@@ -19,9 +19,9 @@ class HebergementDAO extends DAO{
     return ($HebTab);
   }
 
-  public function addUser($log, $mot, $type, $mail, $date){
-    $requete = "Insert into Utilisateur values(?,?,?,?,?)";
-    $rep = $this->queryAll($requete, array($log, $mot, $type, $mail, $date));
+  public function addHebergement($identifiant, $type, $adresse, $numeroTel, $capacite, $services, $placesRestantes,$nom){
+    $requete = "Insert into Hebergement values(?,?,?,?,?,?,?,?)";
+    $rep = $this->queryAll($requete, array($identifiant, $type, $adresse, $numeroTel, $capacite, $services, $placesRestantes,$nom));
     return ($rep);
   }
   public function changeMdp($log, $pass){
