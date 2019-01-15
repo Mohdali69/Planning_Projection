@@ -87,8 +87,10 @@ public class GenerationPlanning {
         HC = OFD.getHC();
         CM = OFD.getCM();
         OPD = initializeConnexionProjection();
+        
         int i = 20;
         boolean test = false;
+        
         for(compteur= 1; compteur<=15;compteur++){
             day.setHours(8);
             day.setMinutes(0);
@@ -189,8 +191,31 @@ public class GenerationPlanning {
                     
                 }//end for   
             }//end if les UCR sont placés, principale + lendemain
+            
+            if(compteur == 13){
+                
+                for(Film movie : CM){
+                    
+                    if(movie.getNbProjection()==0){
+                        
+                        if(day.getHours()<=23 && day.getMinutes()<30){
+                            
+                            String heure = day.getHours() +"h"+ day.getMinutes();
+                            Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 2 ); //le numSalle des CM est 2
+                            OPD.creerProjection(p);
+                            day = addMin(day, movie.getDurée());
+                            movie.setNbProjection(movie.getNbProjection()+1);
+
+                            i++;
+                        }// end if
+                    }//end if
+                    
+                }// end for
+                
+            }//end if
+            
             day = addDay(day);
-            System.out.println("zobzob");
+            
         }//end for
         return null;
     }
