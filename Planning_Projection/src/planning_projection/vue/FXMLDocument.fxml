@@ -19,9 +19,9 @@
 
 <AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
-      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
+      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1433.0">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" layoutX="-3.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-33.0" layoutY="-39.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
                <fill>
                   <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                      <stops>
@@ -99,15 +99,15 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="41.0" layoutY="328.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
-            <Button fx:id="buttonProjection" layoutX="71.0" layoutY="475.0" mnemonicParsing="false" onAction="#buttonProjectionAction" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="41.0" layoutY="210.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
+            <Button fx:id="buttonProjection" layoutX="71.0" layoutY="357.0" mnemonicParsing="false" onAction="#buttonProjectionAction" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
                <font>
                   <Font size="21.0" />
                </font>
                <effect>
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect></Button>
-            <Button id="button" fx:id="buttonPlanning" layoutX="71.0" layoutY="407.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
+            <Button id="button" fx:id="buttonPlanning" layoutX="71.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
                <font>
                   <Font size="21.0" />
                </font>
@@ -118,7 +118,7 @@
                   <String fx:value="button" />
                   <String fx:value="phone" />
                </styleClass></Button>
-            <Label alignment="CENTER" layoutX="73.0" layoutY="341.0" prefHeight="48.0" prefWidth="241.0" text="Actions" textAlignment="CENTER" textOverrun="CLIP">
+            <Label alignment="CENTER" layoutX="73.0" layoutY="223.0" prefHeight="48.0" prefWidth="241.0" text="Actions" textAlignment="CENTER" textOverrun="CLIP">
                <font>
                   <Font size="37.0" />
                </font>
@@ -132,10 +132,102 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ComboBox fx:id="comboBox" layoutX="349.0" layoutY="552.0" onAction="#choixComboBox" prefWidth="150.0" />
-            <ListView fx:id="listeView" layoutX="349.0" layoutY="327.0" orientation="HORIZONTAL" prefHeight="217.0" prefWidth="1054.0" />
+            <ComboBox fx:id="comboBox" layoutX="113.0" layoutY="453.0" onAction="#choixComboBox" prefWidth="150.0" />
+            <ListView fx:id="listeView" layoutX="349.0" layoutY="210.0" onMouseClicked="#ListClicked" orientation="HORIZONTAL" prefHeight="310.0" prefWidth="1054.0" />
 
-            <Button fx:id="afficheButton" layoutX="516.0" layoutY="552.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+            <Button fx:id="afficheButton" layoutX="284.0" layoutY="453.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="941.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="462.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="349.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="450.0" />
+            <Label layoutX="1148.0" layoutY="587.0" text="Film" textFill="#fffbfb">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="550.0" layoutY="587.0" text="Salle" textFill="#fffbfb">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelNom" layoutX="1084.0" layoutY="636.0" prefHeight="34.0" prefWidth="307.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="976.0" layoutY="635.0" prefHeight="34.0" prefWidth="99.0" text="Nom du Film :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="976.0" layoutY="669.0" prefHeight="34.0" prefWidth="57.0" text="Durée :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelDurée" layoutX="1033.0" layoutY="669.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="976.0" layoutY="701.0" prefHeight="34.0" prefWidth="86.0" text="Réalisateur :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelRealisateur" layoutX="1068.0" layoutY="701.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="976.0" layoutY="735.0" prefHeight="34.0" prefWidth="42.0" text="Pays :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelPays" layoutX="1024.0" layoutY="735.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="976.0" layoutY="769.0" prefHeight="34.0" prefWidth="99.0" text="Competition :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelCompet" layoutX="1075.0" layoutY="769.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelNom" layoutX="510.0" layoutY="635.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="387.0" layoutY="635.0" prefHeight="34.0" prefWidth="116.0" text="Nom de la Salle :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="387.0" layoutY="669.0" prefHeight="34.0" prefWidth="116.0" text="Num de la Salle :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelNum" layoutX="510.0" layoutY="669.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="387.0" layoutY="701.0" prefHeight="34.0" prefWidth="57.0" text="Places :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelPlaces" layoutX="456.0" layoutY="701.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
     </children>
