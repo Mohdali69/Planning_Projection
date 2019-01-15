@@ -93,12 +93,8 @@ public class OracleProjectionDAO implements IProjectionDAO{
    public void supprimerAdministratif(Projection Projection) {
          PreparedStatement state = null;
         try{
-            state=OracleProjectionDAO.connexionBD.prepareStatement("DELETE FROM `Projection` WHERE date = ? AND heure = ? AND numProjection = ?");
-            state.setString(1,Projection.getDate().toString());
-            state.setString(2,Projection.getHeures());
-            state.setInt(3,Projection.getNumProjection());
-            state.setInt(4,Projection.getNumPlanning());
-            state.setInt(5,Projection.getNumFilm());
+            state=OracleProjectionDAO.connexionBD.prepareStatement("DELETE FROM `Projection` WHERE numProjection = ?");
+            state.setInt(1,Projection.getNumProjection());
             state.execute();
             state.close();
         }catch(SQLException ex){

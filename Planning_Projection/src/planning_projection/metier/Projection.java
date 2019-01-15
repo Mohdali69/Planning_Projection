@@ -53,7 +53,7 @@ public class Projection {
     @Override
     public String toString(){
 
-        return "Date :" + date +"\n"+"Durée :" + heures +"\n"+"NumProjection :"+numProjection +"\n"+ "NumPlanning :" + numPlanning +"\n" +"NumFilm :" + numFilm + "\n Salle : " + this.numSalle ;
+        return "Date : " + date +"\n"+"Heure : " + heures +"\n"+"NumProjection : "+numProjection +"\n"+ "NumPlanning : " + numPlanning +"\n" +"NumFilm : " + numFilm + "\n Salle : " + this.numSalle ;
 
     }
 
