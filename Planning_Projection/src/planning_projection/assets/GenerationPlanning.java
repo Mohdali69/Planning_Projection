@@ -111,7 +111,7 @@ public class GenerationPlanning {
         Random ran = new Random();
         OPlD=initializeConnexionPlanning();
         int nbPlanning = OPlD.getLesPlannings().size();
-        nbPlanning +=1000;
+        nbPlanning *=1000;
         int i = nbPlanning;
         
         boolean test = false;

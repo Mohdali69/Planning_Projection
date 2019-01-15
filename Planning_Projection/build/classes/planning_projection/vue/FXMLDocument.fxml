@@ -10,6 +10,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -246,6 +248,11 @@
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect>
             </Button>
+            <ImageView fitHeight="54.0" fitWidth="80.0" layoutX="6.0" layoutY="803.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Deconnexion.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
     </children>

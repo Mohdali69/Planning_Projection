@@ -189,12 +189,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonTestList(ActionEvent event) {
-        GenerationPlanning GP = new GenerationPlanning();
+        
         comboBox.getItems().remove(0, planning.getLesPlannings().size());
         Planning p = new Planning(planning.getLesPlannings().size());
         planning.creerPlanning(p);
         
         comboBox= LC.Combo(comboBox, planning);
+        GenerationPlanning GP = new GenerationPlanning();
         GP.generation(p.getNumPlanning());
     }
 
