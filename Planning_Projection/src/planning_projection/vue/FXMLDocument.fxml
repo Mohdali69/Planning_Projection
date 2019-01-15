@@ -99,7 +99,7 @@
                   </RadialGradient>
                </fill>
             </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="217.0" layoutX="41.0" layoutY="210.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="41.0" layoutY="210.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
             <Button fx:id="buttonProjection" layoutX="71.0" layoutY="357.0" mnemonicParsing="false" onAction="#buttonProjectionAction" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
                <font>
                   <Font size="21.0" />
@@ -132,10 +132,10 @@
                   </RadialGradient>
                </textFill>
             </Label>
-            <ComboBox fx:id="comboBox" layoutX="113.0" layoutY="453.0" onAction="#choixComboBox" prefWidth="150.0" />
+            <ComboBox fx:id="comboBox" layoutX="91.0" layoutY="498.0" onAction="#choixComboBox" prefWidth="150.0" />
             <ListView fx:id="listeView" layoutX="349.0" layoutY="210.0" onMouseClicked="#ListClicked" orientation="HORIZONTAL" prefHeight="310.0" prefWidth="1054.0" />
 
-            <Button fx:id="afficheButton" layoutX="284.0" layoutY="453.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+            <Button fx:id="afficheButton" layoutX="269.0" layoutY="498.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="941.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="462.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="349.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="450.0" />
             <Label layoutX="1148.0" layoutY="587.0" text="Film" textFill="#fffbfb">
@@ -228,6 +228,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
+            <Button fx:id="buttonSuppromer" layoutX="73.0" layoutY="423.0" mnemonicParsing="false" onAction="#buttonSupprimerProjection" prefHeight="40.0" prefWidth="241.0" text="Supprimer Projection">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
+               </effect>
+            </Button>
          </children>
       </Pane>
     </children>

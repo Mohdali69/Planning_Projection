@@ -108,6 +108,8 @@ public class FXMLDocumentController implements Initializable {
     private Label salleLabelNum;
     @FXML
     private Label salleLabelPlaces;
+    @FXML
+    private Button buttonSuppromer;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -286,4 +288,12 @@ public class FXMLDocumentController implements Initializable {
             } 
         }
     }
+
+    @FXML
+    private void buttonSupprimerProjection(ActionEvent event) {
+        projection.supprimerAdministratif(listeView.getSelectionModel().getSelectedItem());
+        buttonAfficheAction(event);
+        
+    }
+    
 }
