@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Random;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
@@ -69,7 +70,7 @@ public class GenerationPlanning {
     //Algorithme Principal de la génération de planning
     public Planning generation(int numPlanning){
         Date day = new Date(119,4,13,8,0);
-        
+        Random ran = new Random();
         java.sql.Date date = new java.sql.Date(day.getTime()); 
         
         List<Film> LMDay = new ArrayList<>();
@@ -88,7 +89,7 @@ public class GenerationPlanning {
         CM = OFD.getCM();
         OPD = initializeConnexionProjection();
         
-        int i = 20;
+        int i = 50;
         boolean test = false;
         
         for(compteur= 1; compteur<=15;compteur++){
@@ -107,7 +108,7 @@ public class GenerationPlanning {
                             
                             if(day.getHours()<=23 && day.getMinutes()<30){
                                 String heure = day.getHours() +"h"+ day.getMinutes();
-                                Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
+                                Projection p = new Projection(ran.nextInt(i), heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
                                 OPD.creerProjection(p);
                                 day=addMin(day, movie.getDurée());
                                 nLM++;
