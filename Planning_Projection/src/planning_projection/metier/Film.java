@@ -142,4 +142,8 @@ public class Film {
         this.numFilm = numFilm;
     }
     
+    @Override
+    public String toString(){
+      return "Titre :" + titre +"\n" + "Durée :"+durée+"\n";  
+    }
 }
