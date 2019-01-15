@@ -31,6 +31,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
@@ -45,8 +46,10 @@ import planning_projection.assets.GenerationPlanning;
 import planning_projection.assets.ListeCombo;
 import planning_projection.dao.oracle.OracleFilmDAO;
 import planning_projection.dao.oracle.OraclePlanningDAO;
+import planning_projection.dao.oracle.OracleSalleDAO;
 import planning_projection.metier.Film;
 import planning_projection.metier.Planning;
+import planning_projection.metier.Salle;
 /**
  *
  * @author Asus
@@ -86,8 +89,25 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane ProjectionPane;
     private OracleFilmDAO film;
+    private OracleSalleDAO salle;
     @FXML
     private Button afficherProjectionButton;
+    @FXML
+    private Label filmLabelNom;
+    @FXML
+    private Label filmLabelDurée;
+    @FXML
+    private Label filmLabelRealisateur;
+    @FXML
+    private Label filmLabelPays;
+    @FXML
+    private Label filmLabelCompet;
+    @FXML
+    private Label salleLabelNom;
+    @FXML
+    private Label salleLabelNum;
+    @FXML
+    private Label salleLabelPlaces;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -130,6 +150,7 @@ public class FXMLDocumentController implements Initializable {
         utilisateur = new OracleUtilisateurDAO();//Création de l'Oracle Utilisateur DAO (permet de faire l'intermediaire entre la BD et l'APP) 
         projection = new OracleProjectionDAO();//Création de l'Oracle Projection DAO 
         planning = new OraclePlanningDAO();
+        salle = new OracleSalleDAO();
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();// Creation du Data Source Oracle
             utilisateur.setDataSource(ods);//Initialisation du Data Source
@@ -138,7 +159,10 @@ public class FXMLDocumentController implements Initializable {
             projection.setConnection(ods.getConnection());
             planning.setDataSource(ods);
             planning.setConnection(ods.getConnection());
-            
+            film.setDataSource(ods);
+            film.setConnection(ods.getConnection());
+            salle.setDataSource(ods);
+            salle.setConnection(ods.getConnection());
         }
         
        catch (FileNotFoundException ex) {    
@@ -235,5 +259,31 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void buttonProjectionAction(ActionEvent event) {
         makeFadeOutProjection();
+    }
+
+    @FXML
+    private void ListClicked(MouseEvent event) {
+        List<Film> LFilm = new ArrayList();
+        LFilm = film.getLesFilms();
+        List<Salle> LSalle = new ArrayList();
+        LSalle = salle.getLesSalles();
+        
+        for(int j=0;j<LFilm.size();j++){
+            if(LFilm.get(j).getNumFilm()==listeView.getSelectionModel().getSelectedItem().getNumFilm()){
+                filmLabelNom.setText(LFilm.get(j).getTitre());
+                filmLabelDurée.setText(Integer.toString(LFilm.get(j).getDurée()));
+                filmLabelRealisateur.setText(LFilm.get(j).getRealisateur());
+                filmLabelPays.setText(LFilm.get(j).getPays());
+                filmLabelCompet.setText(LFilm.get(j).getCompetition());
+            }
+            
+        }
+        for(int j=0;j<LSalle.size();j++){
+           if(LSalle.get(j).getNumSalle()==listeView.getSelectionModel().getSelectedItem().getNumSalle()){
+                salleLabelNom.setText(LSalle.get(j).getNom());
+                salleLabelNum.setText(Integer.toString(LSalle.get(j).getNumSalle()));
+                salleLabelPlaces.setText(Integer.toString(LSalle.get(j).getPlaces()));
+            } 
+        }
     }
 }

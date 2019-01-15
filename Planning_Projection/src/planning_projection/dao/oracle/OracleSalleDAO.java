@@ -48,7 +48,7 @@ public class OracleSalleDAO implements ISalleDAO{
         try {
               stmt= connexionBD.createStatement();
               listeSalle = new ArrayList<>();
-              rset = stmt.executeQuery("SELECT * from SALLE");
+              rset = stmt.executeQuery("SELECT * from Salle");
               while(rset.next()){
                 Salle newM = new Salle(rset.getString("nom"), rset.getInt("places"),rset.getInt("numSalle"));
                 listeSalle.add(newM);
