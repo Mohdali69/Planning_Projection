@@ -17,37 +17,8 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
-      <Pane fx:id="ProjectionPane" prefHeight="878.0" prefWidth="1480.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
-               <fill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="#cf2d2d" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
-            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
-               <font>
-                  <Font name="System Bold" size="28.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
-                     <stops>
-                        <Stop color="#f2f2f2" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-            </Label>
-            <Button layoutX="64.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-image: retour.png;" text="Button" />
-         </children>
-      </Pane>
       <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" layoutX="-3.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
@@ -82,6 +53,38 @@
                   </RadialGradient>
                </textFill>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="ProjectionPane" prefHeight="878.0" prefWidth="1480.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
+            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
+                     <stops>
+                        <Stop color="#f2f2f2" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <Button layoutX="64.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-image: ./retour.png;" text="Button" />
+
+            <Button fx:id="afficherProjectionButton" layoutX="517.0" layoutY="552.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+
          </children>
       </Pane>
       <Pane fx:id="AccueilPane" prefHeight="862.0" prefWidth="1442.0">
@@ -131,40 +134,8 @@
             </Label>
             <ComboBox fx:id="comboBox" layoutX="349.0" layoutY="552.0" onAction="#choixComboBox" prefWidth="150.0" />
             <ListView fx:id="listeView" layoutX="349.0" layoutY="327.0" orientation="HORIZONTAL" prefHeight="217.0" prefWidth="1054.0" />
-<<<<<<< HEAD
-            <Button fx:id="afficheButton" layoutX="290.0" layoutY="175.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
-         </children>
-      </Pane>
-      <Pane fx:id="ProjectionPane" prefHeight="878.0" prefWidth="1480.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
-               <fill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="#cf2d2d" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
-            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
-               <font>
-                  <Font name="System Bold" size="28.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
-                     <stops>
-                        <Stop color="#f2f2f2" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-            </Label>
-            <Button layoutX="64.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-image: ./retour.png;" text="Button" />
-=======
-            <Button fx:id="afficheButton" layoutX="517.0" layoutY="552.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
->>>>>>> 7969ac84c59ad07530dcc97ea8ecdbdb125d0295
+
+            <Button fx:id="afficheButton" layoutX="516.0" layoutY="552.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
          </children>
       </Pane>
     </children>
