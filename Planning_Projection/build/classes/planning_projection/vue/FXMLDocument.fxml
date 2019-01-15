@@ -150,12 +150,12 @@
             <Button fx:id="afficheButton" layoutX="269.0" layoutY="498.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
             <ImageView fitHeight="272.0" fitWidth="398.0" layoutX="459.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Gestion_Hebergement/assets/images/ba.jpg" />
+                  <Image url="@../assets/ba.jpg" />
                </image>
             </ImageView>
             <ImageView fitHeight="272.0" fitWidth="363.0" layoutX="929.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../Gestion_Hebergement/assets/images/ba.jpg" />
+                  <Image url="@../assets/ba.jpg" />
                </image>
             </ImageView>
             <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="931.0" layoutY="557.0" stroke="TRANSPARENT" strokeType="INSIDE" width="363.0" />
