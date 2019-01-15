@@ -10,6 +10,8 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.paint.RadialGradient?>
@@ -19,7 +21,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
+      <Rectangle fx:id="rectangle" arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
          <fill>
             <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
                <stops>
@@ -246,6 +248,11 @@
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect>
             </Button>
+            <ImageView fx:id="buttonDeconnexion" fitHeight="54.0" fitWidth="80.0" layoutX="6.0" layoutY="785.0" onMouseClicked="#buttonDeconnexion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Deconnexion.png" />
+               </image>
+            </ImageView>
          </children>
       </Pane>
     </children>
