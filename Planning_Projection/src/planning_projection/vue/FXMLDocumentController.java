@@ -111,17 +111,17 @@ public class FXMLDocumentController implements Initializable {
     private Label salleLabelPlaces;
     @FXML
     private Button buttonSuppromer;
-    @FXML
-    private ImageView buttonDeconnexion;
-    @FXML
-    private Rectangle rectangle;
+
+    private ListeCombo LC;
+
+
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
             boolean log= false;
             progressBar.setProgress(0);
             Connexion con = new Connexion();
-            ListeCombo LC = new ListeCombo();
+            LC= new ListeCombo();
             log = con.connexion(login.getText(),mdp.getText(),utilisateur);
             double i=0.0;
             
@@ -193,8 +193,14 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonTestList(ActionEvent event) {
+        
+        comboBox.getItems().remove(0, planning.getLesPlannings().size());
+        Planning p = new Planning(planning.getLesPlannings().size());
+        planning.creerPlanning(p);
+        
+        comboBox= LC.Combo(comboBox, planning);
         GenerationPlanning GP = new GenerationPlanning();
-        GP.generation(0);
+        GP.generation(p.getNumPlanning());
     }
 
     @FXML
@@ -205,16 +211,15 @@ public class FXMLDocumentController implements Initializable {
         
         List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
         LProjection=projection.getLesProjection();
-        //List<Film> LFilm = new ArrayList();
-        //LFilm = film.getLesFilms();
+        
         
             
             for(int t=0;t<LProjection.size();t++){
                 
                 if(LProjection.get(t).getNumPlanning()==comboBox.getSelectionModel().getSelectedItem().getNumPlanning()){
-                   //if(LProjection.get(t).getNumFilm()==LFilm.get(t).getNumFilm()){
+                   
                        listeView.getItems().add(LProjection.get(t));
-                   //}
+                 
                 }
             }    
             
@@ -323,7 +328,6 @@ public class FXMLDocumentController implements Initializable {
         
     }
 
-    @FXML
     private void buttonDeconnexion(MouseEvent event) {
         makeFadeOutDeco();
     }

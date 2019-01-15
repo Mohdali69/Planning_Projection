@@ -68,7 +68,7 @@ public class OraclePlanningDAO implements IPlanningDAO{
     public void creerPlanning(Planning Planning){ 
         PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("INSERT INTO 'Planning' (numPlanning) VALUES (?)");
+            state=OraclePlanningDAO.connexionBD.prepareStatement("INSERT INTO Planning (numPlanning) VALUES (?)");
             state.setInt(1,Planning.getNumPlanning());
             state.execute();
             state.close();
@@ -82,7 +82,7 @@ public class OraclePlanningDAO implements IPlanningDAO{
    public void supprimerPlanning(Planning Planning) {
          PreparedStatement state = null;
         try{
-            state=OraclePlanningDAO.connexionBD.prepareStatement("DELETE FROM 'Planning' WHERE numPlanning = ?");
+            state=OraclePlanningDAO.connexionBD.prepareStatement("DELETE FROM Planning WHERE numPlanning = ?");
             state.setInt(1,Planning.getNumPlanning());
             state.execute();
             state.close();
