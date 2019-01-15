@@ -86,6 +86,8 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Pane ProjectionPane;
     private OracleFilmDAO film;
+    @FXML
+    private Button afficherProjectionButton;
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
