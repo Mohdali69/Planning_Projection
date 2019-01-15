@@ -17,6 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
 import planning_projection.dao.oracle.OracleFilmDAO;
+import planning_projection.dao.oracle.OraclePlanningDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
 import planning_projection.metier.Film;
 import planning_projection.metier.Planning;
@@ -29,6 +30,7 @@ import planning_projection.metier.Projection;
 public class GenerationPlanning {
     OracleDataSourceDAO ods ;
     OracleFilmDAO OFD = new OracleFilmDAO();
+    OraclePlanningDAO OPlD = new OraclePlanningDAO();
     OracleProjectionDAO OPD = new OracleProjectionDAO();
 
     public GenerationPlanning() {
@@ -51,6 +53,22 @@ public class GenerationPlanning {
         return OFD;
     }
     
+    public OraclePlanningDAO initializeConnexionPlanning(){
+        try {
+            ods = OracleDataSourceDAO.getOracleDataSourceDAO();
+            OPlD.setDataSource(ods);
+            try {
+                OPlD.setConnection(ods.getConnection());
+            } catch (SQLException ex) {
+                Logger.getLogger(GenerationPlanning.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(GenerationPlanning.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return OPlD;
+    }
+    
     public OracleProjectionDAO initializeConnexionProjection(){
         try {
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();
@@ -70,7 +88,7 @@ public class GenerationPlanning {
     //Algorithme Principal de la génération de planning
     public Planning generation(int numPlanning){
         Date day = new Date(119,4,13,8,0);
-        Random ran = new Random();
+        
         java.sql.Date date = new java.sql.Date(day.getTime()); 
         
         List<Film> LMDay = new ArrayList<>();
@@ -89,7 +107,13 @@ public class GenerationPlanning {
         CM = OFD.getCM();
         OPD = initializeConnexionProjection();
         
-        int i = 50;
+        
+        Random ran = new Random();
+        OPlD=initializeConnexionPlanning();
+        int nbPlanning = OPlD.getLesPlannings().size();
+        nbPlanning +=1000;
+        int i = nbPlanning;
+        
         boolean test = false;
         
         for(compteur= 1; compteur<=15;compteur++){
@@ -108,7 +132,7 @@ public class GenerationPlanning {
                             
                             if(day.getHours()<=23 && day.getMinutes()<30){
                                 String heure = day.getHours() +"h"+ day.getMinutes();
-                                Projection p = new Projection(ran.nextInt(i), heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
+                                Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des LM est 0
                                 OPD.creerProjection(p);
                                 day=addMin(day, movie.getDurée());
                                 nLM++;
