@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
          <fill>
@@ -148,94 +148,104 @@
             <ListView fx:id="listeView" layoutX="349.0" layoutY="210.0" onMouseClicked="#ListClicked" orientation="HORIZONTAL" prefHeight="310.0" prefWidth="1054.0" />
 
             <Button fx:id="afficheButton" layoutX="269.0" layoutY="498.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="941.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="462.0" />
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="349.0" layoutY="565.0" stroke="TRANSPARENT" strokeType="INSIDE" width="450.0" />
-            <Label layoutX="1148.0" layoutY="587.0" text="Film" textFill="#fffbfb">
+            <ImageView fitHeight="272.0" fitWidth="398.0" layoutX="459.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Gestion_Hebergement/assets/images/ba.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="272.0" fitWidth="363.0" layoutX="929.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../Gestion_Hebergement/assets/images/ba.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="931.0" layoutY="557.0" stroke="TRANSPARENT" strokeType="INSIDE" width="363.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="459.0" layoutY="558.0" stroke="TRANSPARENT" strokeType="INSIDE" width="363.0" />
+            <Label layoutX="1110.0" layoutY="579.0" text="Film" textFill="#fffbfb">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label layoutX="550.0" layoutY="587.0" text="Salle" textFill="#fffbfb">
+            <Label layoutX="615.0" layoutY="580.0" text="Salle" textFill="#fffbfb">
                <font>
                   <Font name="System Bold" size="19.0" />
                </font>
             </Label>
-            <Label fx:id="filmLabelNom" layoutX="1084.0" layoutY="636.0" prefHeight="34.0" prefWidth="307.0" textFill="WHITE">
+            <Label fx:id="filmLabelNom" layoutX="1046.0" layoutY="628.0" prefHeight="34.0" prefWidth="307.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="976.0" layoutY="635.0" prefHeight="34.0" prefWidth="99.0" text="Nom du Film :" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="627.0" prefHeight="34.0" prefWidth="99.0" text="Nom du Film :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="976.0" layoutY="669.0" prefHeight="34.0" prefWidth="57.0" text="Durée :" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="661.0" prefHeight="34.0" prefWidth="57.0" text="Durée :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="filmLabelDurée" layoutX="1033.0" layoutY="669.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="filmLabelDurée" layoutX="995.0" layoutY="661.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="976.0" layoutY="701.0" prefHeight="34.0" prefWidth="86.0" text="Réalisateur :" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="693.0" prefHeight="34.0" prefWidth="86.0" text="Réalisateur :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="filmLabelRealisateur" layoutX="1068.0" layoutY="701.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="filmLabelRealisateur" layoutX="1030.0" layoutY="693.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="976.0" layoutY="735.0" prefHeight="34.0" prefWidth="42.0" text="Pays :" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="727.0" prefHeight="34.0" prefWidth="42.0" text="Pays :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="filmLabelPays" layoutX="1024.0" layoutY="735.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="filmLabelPays" layoutX="986.0" layoutY="727.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="976.0" layoutY="769.0" prefHeight="34.0" prefWidth="99.0" text="Competition :" textFill="WHITE">
+            <Label layoutX="938.0" layoutY="761.0" prefHeight="34.0" prefWidth="99.0" text="Competition :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="filmLabelCompet" layoutX="1075.0" layoutY="769.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="filmLabelCompet" layoutX="1037.0" layoutY="761.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="salleLabelNom" layoutX="510.0" layoutY="635.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="salleLabelNom" layoutX="597.0" layoutY="628.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="387.0" layoutY="635.0" prefHeight="34.0" prefWidth="116.0" text="Nom de la Salle :" textFill="WHITE">
+            <Label layoutX="474.0" layoutY="628.0" prefHeight="34.0" prefWidth="116.0" text="Nom de la Salle :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="387.0" layoutY="669.0" prefHeight="34.0" prefWidth="116.0" text="Num de la Salle :" textFill="WHITE">
+            <Label layoutX="474.0" layoutY="662.0" prefHeight="34.0" prefWidth="116.0" text="Num de la Salle :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="salleLabelNum" layoutX="510.0" layoutY="669.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="salleLabelNum" layoutX="597.0" layoutY="662.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label layoutX="387.0" layoutY="701.0" prefHeight="34.0" prefWidth="57.0" text="Places :" textFill="WHITE">
+            <Label layoutX="474.0" layoutY="694.0" prefHeight="34.0" prefWidth="57.0" text="Places :" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
             </Label>
-            <Label fx:id="salleLabelPlaces" layoutX="456.0" layoutY="701.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+            <Label fx:id="salleLabelPlaces" layoutX="543.0" layoutY="694.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -253,6 +263,24 @@
                   <Image url="@Deconnexion.png" />
                </image>
             </ImageView>
+            <ImageView fitHeight="123.0" fitWidth="229.0" layoutX="74.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="494.0" layoutY="46.0" text="Planning du Festival ">
+               <font>
+                  <Font size="82.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#ffa6a6" />
+                        <Stop color="#ff8282" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
          </children>
       </Pane>
     </children>

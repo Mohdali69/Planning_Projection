@@ -31,6 +31,7 @@ import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -110,7 +111,10 @@ public class FXMLDocumentController implements Initializable {
     private Label salleLabelPlaces;
     @FXML
     private Button buttonSuppromer;
+
     private ListeCombo LC;
+
+
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
@@ -263,6 +267,26 @@ public class FXMLDocumentController implements Initializable {
        public void loadProjectionPane(){ 
            ProjectionPane.setVisible(true);
         }
+       public void makeFadeOutDeco(){
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(AccueilPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                loadDecoPane();
+            }
+        });
+        fadeTransition.play();
+        
+           
+       }
+       public void loadDecoPane(){
+           ConnexionPane.setVisible(true);
+           
+        }
 
     @FXML
     private void buttonProjectionAction(ActionEvent event) {
@@ -300,6 +324,10 @@ public class FXMLDocumentController implements Initializable {
         projection.supprimerAdministratif(listeView.getSelectionModel().getSelectedItem());
         buttonAfficheAction(event);
         
+    }
+
+    private void buttonDeconnexion(MouseEvent event) {
+        makeFadeOutDeco();
     }
     
 }
