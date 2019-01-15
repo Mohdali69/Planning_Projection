@@ -3,9 +3,6 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
-        </group>
-        <group>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleProjectionDAO.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleUtilisateurDAO.java</file>
@@ -58,6 +55,11 @@
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleProjectionDAO.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ListeComboTest.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
         </group>
     </open-files>
 </project-private>
