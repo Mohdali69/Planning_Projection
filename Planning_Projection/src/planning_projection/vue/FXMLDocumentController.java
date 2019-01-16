@@ -375,7 +375,7 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonEntrezAction(ActionEvent event) {
-        
+
         //Projection pro = new Projection(22, textHeure.getText(),textDate.getText(),comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
         
         
@@ -383,21 +383,26 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void rafraichirListes(ActionEvent event) {
-        //Suppression à chaque fois que l'on appuie sur le button (pas avoir de doublon)
+        
+        //Appel la methode ListeCombo qui rempli la ComboBox depuis la Bas
         ListeCombo LC2 = new ListeCombo();
         comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
+        
+         //Suppression à chaque fois que l'on appuie sur le button (pas avoir de doublon)
         ListeFilm.getItems().remove(0, ListeFilm.getItems().size());
         ListeSalle.getItems().remove(0, ListeSalle.getItems().size());
         
-        List<Film> LFilm = new ArrayList();//Création d'une Liste de Projection
-        LFilm=film.getLesFilms();
-        List<Salle> LSalle = new ArrayList();//Création d'une Liste de Projection
-        LSalle=salle.getLesSalles();
+        List<Film> LFilm = new ArrayList();//Création d'une Liste de Film
+        LFilm=film.getLesFilms();//Import de la BD 
+        List<Salle> LSalle = new ArrayList();//Création d'une Liste de Salle
+        LSalle=salle.getLesSalles();//Import de la BD 
         
+        //Remplis la ListeView de Film depuis la BD
         for(int ta=0;ta<LFilm.size();ta++){
             
              ListeFilm.getItems().add(LFilm.get(ta));
         }
+        //Remplis l'autre ListeView de Salle depuis la BD
         for(int to=0;to<LSalle.size();to++){
             ListeSalle.getItems().add(LSalle.get(to));
         }
