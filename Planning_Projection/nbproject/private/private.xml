@@ -3,8 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-=======
+
+
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleProjectionDAO.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Film.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Projection.java</file>
@@ -59,7 +59,7 @@
         </group>
         <group>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
->>>>>>> f8c9124d2a10734010868332c6f15398d37500ad
+
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
