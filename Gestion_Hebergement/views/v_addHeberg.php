@@ -14,7 +14,7 @@
                         <img src="https://image.ibb.co/n7oTvU/logo_white.png" alt=""/>
                         <h3>Ajouter un hebergement</h3>
                         <?php
-                            if(isset($rep) and $rep){
+                            if(isset($rep)){
                             echo '<div class="container alert alert-success">
                               Hebergement ajouté ! Identifiant : '.$id.'
                             </div>';

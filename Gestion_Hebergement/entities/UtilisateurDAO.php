@@ -22,7 +22,7 @@ class UtilisateurDAO extends DAO{
     return ($rep);
   }
   public function changeMdp($log, $pass){
-    $requete = "Update Utilisateur set mot=? where login = ?";
+    $requete = "Update Utilisateur set password=? where user=?";
     $rep = $this->queryAll($requete, array($pass , $log));
     return ($rep);
   }

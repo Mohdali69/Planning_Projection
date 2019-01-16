@@ -9,9 +9,10 @@ private $capacite;
 private $services;
 private $places_restantes;
 private $nom;
+private $gerant;
 
 
-function __construct($id, $type, $adresse, $numero, $c, $serv, $pr,$nom){
+function __construct($id, $type, $adresse, $numero, $c, $serv, $pr,$nom, $gerant){
   $this->identifiant = $id;
   $this->type = $type;
   $this->adresse = $adresse;
@@ -20,6 +21,7 @@ function __construct($id, $type, $adresse, $numero, $c, $serv, $pr,$nom){
   $this->services = $serv;
   $this->places_restante = $pr;
   $this->nom = $nom;
+  $this->gerant = $gerant;
 }
 
 public function getId(){
@@ -54,6 +56,9 @@ public function getNom(){
   return $this->nom;
 }
 
+public function getGerant(){
+  return $this->gerant;
+}
 
 
 }

@@ -3,20 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
-        </group>
-        <group>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
-            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
-        </group>
-        <group>
+<<<<<<< HEAD
+=======
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleProjectionDAO.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Film.java</file>
             <file>file:/D:/CPOA/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Projection.java</file>
@@ -36,6 +24,78 @@
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
         </group>
         <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
+>>>>>>> f8c9124d2a10734010868332c6f15398d37500ad
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleFilmDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OraclePlanningDAO.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/metier/Planning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocument.fxml</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/GenerationPlanning.java</file>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/ListeCombo.java</file>
+        </group>
+        <group>
+            <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/dao/oracle/OracleDataSourceDAO.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/vue/FXMLDocumentController.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/test/Main/ConnexionTest.java</file>
             <file>file:/C:/wamp64/www/Projet_CPOA/Planning_Projection/src/planning_projection/assets/Connexion.java</file>
