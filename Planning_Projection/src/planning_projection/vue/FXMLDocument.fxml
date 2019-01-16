@@ -291,14 +291,14 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="textJour" layoutX="578.0" layoutY="340.0" />
+            <TextField fx:id="textJour" layoutX="578.0" layoutY="341.0" />
             <Label layoutX="494.0" layoutY="457.0" prefHeight="28.0" prefWidth="65.0" text="Heure :" textFill="#fffbfb">
                <font>
                   <Font size="19.0" />
                </font>
             </Label>
             <TextField fx:id="textHeure" layoutX="578.0" layoutY="458.0" />
-            <Label layoutX="486.0" layoutY="534.0" prefHeight="74.0" prefWidth="468.0" text="Choisissez votre Film et votre Salle à partir de la Liste" textFill="#fffbfb">
+            <Label fx:id="labelok" layoutX="486.0" layoutY="534.0" prefHeight="74.0" prefWidth="468.0" text="Choisissez votre Film et votre Salle à partir de la Liste" textFill="#fffbfb">
                <font>
                   <Font size="19.0" />
                </font>
@@ -310,8 +310,8 @@
                   <Font size="19.0" />
                </font>
             </Label>
-            <TextField fx:id="text" layoutX="578.0" layoutY="377.0" />
-            <TextField fx:id="textDate11" layoutX="578.0" layoutY="419.0" />
+            <TextField fx:id="textMois" layoutX="578.0" layoutY="377.0" />
+            <TextField fx:id="textAnnee" layoutX="578.0" layoutY="419.0" />
             <Label layoutX="494.0" layoutY="376.0" prefHeight="28.0" prefWidth="65.0" text="Mois :" textFill="#fffbfb">
                <font>
                   <Font size="19.0" />
