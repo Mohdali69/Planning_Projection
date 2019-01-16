@@ -17,7 +17,17 @@ h1{
 #menu{
   font-family:Raleway;
   background-color: rgba(191,191,191,0.03);
+  z-index: 9999;
+				position: fixed;
+				top: 0;
+}
 
+.fixgauche{
+
+        background-color: rgba(191,191,191,0.2) !important;
+}
+section.container-fluid{
+  margin-top: 10%;
 }
 #logo{
   position : relative;

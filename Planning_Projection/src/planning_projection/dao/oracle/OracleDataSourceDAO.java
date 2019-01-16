@@ -34,7 +34,7 @@ public class OracleDataSourceDAO extends MysqlDataSource {
             
             
             Properties props = new Properties();
-            fichier = new FileInputStream(".\\src\\planning_projection\\dao\\oracle\\connexion.properties");
+            fichier = new FileInputStream("C:\\wamp64\\www\\Projet_CPOA\\Planning_Projection\\src\\planning_projection\\dao\\oracle\\connexion.properties");
             props.load(fichier);
             props.setProperty("port", "3306");
             props.setProperty("databasename", "p1700102");

@@ -17,7 +17,7 @@ if(isset($_POST['type']) and $_POST['type']!=''){
             $id = rand();
             $placesRestantes=$_POST['capacite'];
 
-            $rep = $HDAO->addHebergement($id,$_POST['type'],$_POST['adresse'],$_POST['numeroTel'],$_POST['capacite'],$_POST['services'],$placesRestantes,$_POST['nom']);
+            $rep = $HDAO->addHebergement($id,$_POST['type'],$_POST['adresse'],$_POST['numeroTel'],$_POST['capacite'],$_POST['services'],$placesRestantes,$_POST['nom'], $_SESSION['current_id']);
           }
         }
       }

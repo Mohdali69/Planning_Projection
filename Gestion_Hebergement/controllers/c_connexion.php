@@ -19,6 +19,7 @@ if(isset($_POST['email'])){
           $_SESSION['aut']='true';
           $_SESSION['num']= 0;
           $_SESSION['nbPage']=1;
+          $_SESSION['current_id']=$dat->getIdentifiant();
         }
         else{
           $err = 'Mauvais mot de passe';
