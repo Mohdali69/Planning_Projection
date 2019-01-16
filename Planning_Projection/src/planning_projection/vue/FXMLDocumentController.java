@@ -245,6 +245,7 @@ public class FXMLDocumentController implements Initializable {
     }
         public void loadAccueilPane() {
             AccueilPane.setVisible(true);
+            ConnexionPane.setVisible(false);
         }
         
        public void makeFadeOutProjection(){
@@ -266,6 +267,7 @@ public class FXMLDocumentController implements Initializable {
        
        public void loadProjectionPane(){ 
            ProjectionPane.setVisible(true);
+           ConnexionPane.setVisible(false);
         }
        public void makeFadeOutDeco(){
         FadeTransition fadeTransition = new FadeTransition();
@@ -284,8 +286,8 @@ public class FXMLDocumentController implements Initializable {
            
        }
        public void loadDecoPane(){
+           AccueilPane.setVisible(false);
            ConnexionPane.setVisible(true);
-           
         }
 
     @FXML
