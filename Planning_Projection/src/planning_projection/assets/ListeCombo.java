@@ -40,7 +40,9 @@ public class ListeCombo {
         for(int tab=0;tab<LPlanning.size();tab++){
             comboBox.getItems().add(LPlanning.get(tab));
         }
+        
        return comboBox;
     }
+    
     
 }

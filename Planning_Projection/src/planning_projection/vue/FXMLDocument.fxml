@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
          <fill>
@@ -31,7 +31,7 @@
             </RadialGradient>
          </fill>
       </Rectangle>
-      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1433.0">
+      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-33.0" layoutY="-39.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
                <fill>
@@ -67,39 +67,7 @@
             </Label>
          </children>
       </Pane>
-      <Pane fx:id="ProjectionPane" prefHeight="878.0" prefWidth="1480.0">
-         <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
-               <fill>
-                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
-                     <stops>
-                        <Stop color="#cf2d2d" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </fill>
-            </Rectangle>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
-            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
-               <font>
-                  <Font name="System Bold" size="28.0" />
-               </font>
-               <textFill>
-                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
-                     <stops>
-                        <Stop color="#f2f2f2" />
-                        <Stop color="BLACK" offset="1.0" />
-                     </stops>
-                  </RadialGradient>
-               </textFill>
-            </Label>
-            <Button layoutX="64.0" layoutY="47.0" mnemonicParsing="false" style="-fx-background-image: ./retour.png;" text="Button" />
-
-            <Button fx:id="afficherProjectionButton" layoutX="517.0" layoutY="552.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
-
-         </children>
-      </Pane>
-      <Pane fx:id="AccueilPane" prefHeight="862.0" prefWidth="1442.0">
+      <Pane fx:id="AccueilPane" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
                <fill>
@@ -258,7 +226,7 @@
                   <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
                </effect>
             </Button>
-            <ImageView fitHeight="54.0" fitWidth="80.0" layoutX="6.0" layoutY="803.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="54.0" fitWidth="80.0" layoutX="19.0" layoutY="774.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Deconnexion.png" />
                </image>
@@ -281,6 +249,80 @@
                   </RadialGradient>
                </textFill>
             </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="ProjectionPane" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
+            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
+                     <stops>
+                        <Stop color="#f2f2f2" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+
+            <Button fx:id="afficherProjectionButton" layoutX="692.0" layoutY="608.0" mnemonicParsing="false" onAction="#buttonEntrezAction" text="Entrez" />
+            <ImageView fx:id="buttonRetour" fitHeight="79.0" fitWidth="38.0" layoutX="35.0" layoutY="17.0" onMouseClicked="#buttonRetourAffiche" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back2.png" />
+               </image>
+            </ImageView>
+            <ListView fx:id="ListeFilm" layoutX="1108.0" layoutY="216.0" prefHeight="531.0" prefWidth="200.0" />
+            <ListView fx:id="ListeSalle" layoutX="128.0" layoutY="216.0" prefHeight="523.0" prefWidth="200.0" />
+            <Label layoutX="494.0" layoutY="339.0" prefHeight="28.0" prefWidth="65.0" text="Jour :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textJour" layoutX="578.0" layoutY="340.0" />
+            <Label layoutX="494.0" layoutY="457.0" prefHeight="28.0" prefWidth="65.0" text="Heure :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textHeure" layoutX="578.0" layoutY="458.0" />
+            <Label layoutX="486.0" layoutY="534.0" prefHeight="74.0" prefWidth="468.0" text="Choisissez votre Film et votre Salle à partir de la Liste" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="Raf" layoutX="659.0" layoutY="739.0" mnemonicParsing="false" onAction="#rafraichirListes" text="Rafraichir Listes" />
+            <ComboBox fx:id="comboBoxPane2" layoutX="591.0" layoutY="500.0" prefWidth="150.0" />
+            <Label layoutX="494.0" layoutY="498.0" prefHeight="28.0" prefWidth="86.0" text="Planning :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="text" layoutX="578.0" layoutY="377.0" />
+            <TextField fx:id="textDate11" layoutX="578.0" layoutY="419.0" />
+            <Label layoutX="494.0" layoutY="376.0" prefHeight="28.0" prefWidth="65.0" text="Mois :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="494.0" layoutY="418.0" prefHeight="28.0" prefWidth="65.0" text="Année :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+
          </children>
       </Pane>
     </children>

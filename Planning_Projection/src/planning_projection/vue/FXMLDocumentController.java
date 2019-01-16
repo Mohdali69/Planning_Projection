@@ -5,6 +5,8 @@
  */
 package planning_projection.vue;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.util.Type.Int;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -12,6 +14,7 @@ import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -113,6 +116,25 @@ public class FXMLDocumentController implements Initializable {
     private Button buttonSuppromer;
 
     private ListeCombo LC;
+    @FXML
+    private ImageView buttonRetour;
+    @FXML
+    private ListView<Film> ListeFilm;
+    @FXML
+    private ListView<Salle> ListeSalle;
+    private TextField textDate;
+    @FXML
+    private TextField textHeure;
+    @FXML
+    private Button Raf;
+    @FXML
+    private ComboBox<Planning> comboBoxPane2;
+    @FXML
+    private TextField textJour;
+    @FXML
+    private TextField text;
+    @FXML
+    private TextField textDate11;
 
 
     
@@ -133,13 +155,7 @@ public class FXMLDocumentController implements Initializable {
                 }
                 
                 makeFadeOutCon();
-                
-                
-
-                
                 comboBox= LC.Combo(comboBox, planning);
-               
-
             }
             else{
                 message.setText("Veuillez Verifier vos Ids");
@@ -264,10 +280,30 @@ public class FXMLDocumentController implements Initializable {
         
            
        }
+       public void makeFadeOutPro(){
+        FadeTransition fadeTransition = new FadeTransition();
+        fadeTransition.setDuration(Duration.millis(1000));
+        fadeTransition.setNode(ProjectionPane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setOnFinished(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                loadProjection();
+            }
+        });
+        fadeTransition.play();
+        
+           
+       }
        
        public void loadProjectionPane(){ 
            ProjectionPane.setVisible(true);
            ConnexionPane.setVisible(false);
+        }
+       public void loadProjection(){ 
+           AccueilPane.setVisible(true);
+           ProjectionPane.setVisible(false);
         }
        public void makeFadeOutDeco(){
         FadeTransition fadeTransition = new FadeTransition();
@@ -330,6 +366,42 @@ public class FXMLDocumentController implements Initializable {
 
     private void buttonDeconnexion(MouseEvent event) {
         makeFadeOutDeco();
+    }
+
+    @FXML
+    private void buttonRetourAffiche(MouseEvent event) {
+      makeFadeOutPro();
+    }
+
+    @FXML
+    private void buttonEntrezAction(ActionEvent event) {
+        
+        //Projection pro = new Projection(22, textHeure.getText(),textDate.getText(),comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
+        
+        
+    }
+
+    @FXML
+    private void rafraichirListes(ActionEvent event) {
+        //Suppression à chaque fois que l'on appuie sur le button (pas avoir de doublon)
+        ListeCombo LC2 = new ListeCombo();
+        comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
+        ListeFilm.getItems().remove(0, ListeFilm.getItems().size());
+        ListeSalle.getItems().remove(0, ListeSalle.getItems().size());
+        
+        List<Film> LFilm = new ArrayList();//Création d'une Liste de Projection
+        LFilm=film.getLesFilms();
+        List<Salle> LSalle = new ArrayList();//Création d'une Liste de Projection
+        LSalle=salle.getLesSalles();
+        
+        for(int ta=0;ta<LFilm.size();ta++){
+            
+             ListeFilm.getItems().add(LFilm.get(ta));
+        }
+        for(int to=0;to<LSalle.size();to++){
+            ListeSalle.getItems().add(LSalle.get(to));
+        }
+        
     }
     
 }

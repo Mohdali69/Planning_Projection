@@ -61,5 +61,9 @@ public class Salle {
     public void setNumSalle(int numSalle) {
         this.numSalle = numSalle;
     }
+    @Override
+    public String toString(){
+      return "Nom de la Salle : "+nom+"\n"+"Num de la Salle : "+numSalle+"\n"+"Places : "+places;  
+    }
     
 }
