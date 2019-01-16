@@ -34,31 +34,24 @@ public class OracleDataSourceDAO extends MysqlDataSource {
             
             
             Properties props = new Properties();
-            fichier = new FileInputStream("C:\\wamp64\\www\\Projet_CPOA\\Planning_Projection\\src\\planning_projection\\dao\\oracle\\connexion.properties");
-            props.load(fichier);
-            props.setProperty("port", "3306");
-            props.setProperty("databasename", "p1700102");
-            props.setProperty("user", "p1700102");
-            props.setProperty("pwd", "294150");
-            props.setProperty("serveur", "iutdoua-web.univ-lyon1.fr");
+            //fichier = new FileInputStream("C:\\wamp64\\www\\Projet_CPOA\\Planning_Projection\\src\\planning_projection\\dao\\oracle\\connexion.properties");
+            //props.load(fichier);
+           // props.setProperty("port", "3306");
+            //props.setProperty("databasename", "p1700102");
+            //props.setProperty("user", "p1700102");
+           // props.setProperty("pwd", "294150");
+           // props.setProperty("serveur", "iutdoua-web.univ-lyon1.fr");
             ods = new OracleDataSourceDAO();
-            ods.setPortNumber(new Integer(props.getProperty("port")));
-            ods.setUser(props.getProperty("user"));
-            ods.setDatabaseName(props.getProperty("databasename"));
-            ods.setPassword(props.getProperty("pwd"));
-            ods.setServerName(props.getProperty("serveur"));
+            ods.setPortNumber(3306);
+            ods.setUser("p1700102");
+            ods.setDatabaseName("p1700102");
+            ods.setPassword("294150");
+            ods.setServerName("iutdoua-web.univ-lyon1.fr");
             
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IOException | SQLException ex) {
+        } catch (SQLException ex) {
             Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
         finally{
-            try {
-                fichier.close();
-            } catch (IOException ex) {
-                Logger.getLogger(OracleDataSourceDAO.class.getName()).log(Level.SEVERE, null, ex);
-            }
         }
         
         

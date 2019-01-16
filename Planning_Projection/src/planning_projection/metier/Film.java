@@ -144,6 +144,6 @@ public class Film {
     
     @Override
     public String toString(){
-      return "Titre :" + titre +"\n" + "Durée :"+durée+"\n";  
+      return "Titre :" + titre +"\n" + "Durée :"+durée+"\n"+"Réalisateur : "+realisateur+"\n"+"Pays : "+pays+"\n"+"Competition : "+competition+"\n"+"Numero Film : "+numFilm;  
     }
 }
