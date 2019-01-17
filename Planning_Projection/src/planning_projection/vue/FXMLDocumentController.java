@@ -132,9 +132,13 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField textJour;
     @FXML
-    private TextField text;
+    private Label labelok;
     @FXML
-    private TextField textDate11;
+    private TextField textMois;
+    @FXML
+    private TextField textAnnee;
+    @FXML
+    private ImageView buttonDeco;
 
 
     
@@ -264,7 +268,9 @@ public class FXMLDocumentController implements Initializable {
     }
         public void loadAccueilPane() {
             AccueilPane.setVisible(true);
-            ConnexionPane.setVisible(false);
+            AccueilPane.setOpacity(1);
+            ConnexionPane.setOpacity(0);
+            ProjectionPane.setOpacity(0);
         }
        //Animation de l'Accueil 
        public void makeFadeOutProjection(){
@@ -303,10 +309,14 @@ public class FXMLDocumentController implements Initializable {
        
        public void loadProjectionPane(){ 
            ProjectionPane.setVisible(true);
-           ConnexionPane.setVisible(false);
+           ProjectionPane.setOpacity(1);
+           ConnexionPane.setOpacity(0);
         }
        public void loadProjection(){ 
-           AccueilPane.setVisible(true);
+           
+           AccueilPane.setOpacity(1);
+           ProjectionPane.setOpacity(0);
+           ConnexionPane.setOpacity(0);
            ProjectionPane.setVisible(false);
         }
        public void makeFadeOutDeco(){
@@ -321,14 +331,19 @@ public class FXMLDocumentController implements Initializable {
                 loadDecoPane();
             }
         });
+        
         fadeTransition.play();
         
            
        }
        //Affichage du Pannel Connexion
        public void loadDecoPane(){
+           
+           AccueilPane.setOpacity(0);
+           ConnexionPane.setOpacity(1);
+           ProjectionPane.setOpacity(0);
            AccueilPane.setVisible(false);
-           ConnexionPane.setVisible(true);
+           progressBar.setProgress(0);
         }
 
     @FXML
@@ -372,6 +387,7 @@ public class FXMLDocumentController implements Initializable {
         
     }
 
+    @FXML
     private void buttonDeconnexion(MouseEvent event) {
         //Appel la Transition entre le Panel Accueil et Login
         makeFadeOutDeco();
@@ -380,7 +396,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void buttonRetourAffiche(MouseEvent event) {
         //Appel la Transition entre le Panel Projection et Accueil
-      makeFadeOutPro();
+        makeFadeOutPro();
     }
 
     @FXML
