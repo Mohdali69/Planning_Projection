@@ -94,18 +94,17 @@ public class OracleProjectionDAO implements IProjectionDAO{
         PreparedStatement state = null;
         try{
 
-            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO `Projection` (date,heure,numProjection,numPlanning,numFilm, numSalle) VALUES (?,?,?,?,?,?)");
-            state.setString(1,Projection.getDate().toString());
+            
 
-            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO Projection (date,heure,numProjection,numPlanning,numFilm, numSalle) VALUES (?,?,?,?,?,?)");
+            state=OracleProjectionDAO.connexionBD.prepareStatement("INSERT INTO Projection (date,heure,numPlanning,numFilm, numSalle) VALUES (?,?,?,?,?)");
             java.sql.Date date = new java.sql.Date(Projection.getDate().getTime());
             state.setDate(1, date);
 
             state.setString(2,Projection.getHeures());
-            state.setInt(3,Projection.getNumProjection());
-            state.setInt(4,Projection.getNumPlanning());
-            state.setInt(5,Projection.getNumFilm());
-            state.setInt(6, Projection.getNumSalle());
+            
+            state.setInt(3,Projection.getNumPlanning());
+            state.setInt(4,Projection.getNumFilm());
+            state.setInt(5, Projection.getNumSalle());
             state.execute();
             state.close();
         }catch(SQLException ex){
