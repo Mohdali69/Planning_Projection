@@ -348,6 +348,8 @@ public class FXMLDocumentController implements Initializable {
            ProjectionPane.setOpacity(0);
            AccueilPane.setVisible(false);
            progressBar.setProgress(0);
+           login.setText("");
+           mdp.setText("");
         }
 
     @FXML
