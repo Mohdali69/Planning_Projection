@@ -385,7 +385,31 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonEntrezAction(ActionEvent event) {
-
+        List<Projection> listeP = projection.getLesProjection();
+        List<Film> listeF = film.getLesFilms();
+        int duree=0;
+        int jour;
+        Date d;
+        String heure;
+        int mois ;
+        int annee;
+        for(Projection proj : listeP){
+            d = proj.getDate();
+            heure = proj.getHeures();
+            jour = d.getDay();
+            mois = d.getMonth();
+            annee = d.getYear();
+            
+            for(Film movie : listeF){
+                if(proj.getNumFilm()==movie.getNumFilm()){
+                    duree = movie.getDurée();
+                }
+            }
+            
+            if(duree!=0){
+                
+            }
+        }
         //Projection pro = new Projection(22, textHeure.getText(),textDate.getText(),comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
         
         
