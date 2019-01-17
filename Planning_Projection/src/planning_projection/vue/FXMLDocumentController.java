@@ -140,6 +140,7 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void handleButtonAction(ActionEvent event) throws SQLException, InterruptedException {
+        //Test de la Connexion
             boolean log= false;
             progressBar.setProgress(0);
             Connexion con = new Connexion();
@@ -166,7 +167,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // Initialisation des divers DAO
         ProjectionPane.setVisible(false);
         AccueilPane.setVisible(false);
         film = new OracleFilmDAO();
@@ -209,19 +210,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonTestList(ActionEvent event) {
-        
+        //Genère un Planning à Partir d'une methode prédéfinie
         comboBox.getItems().remove(0, planning.getLesPlannings().size());
         Planning p = new Planning(planning.getLesPlannings().size());
         planning.creerPlanning(p);
         
         comboBox= LC.Combo(comboBox, planning);
+        //La Methode prédéfinie
         GenerationPlanning GP = new GenerationPlanning();
         GP.generation(p.getNumPlanning());
     }
 
     @FXML
     private void buttonAfficheAction(ActionEvent event) {
-        
+        //Affiche les Projection en Fonction du Planning Choisis
         listeView.getItems().remove(0, listeView.getItems().size());
         int i=0;
         
@@ -231,7 +233,7 @@ public class FXMLDocumentController implements Initializable {
         
             
             for(int t=0;t<LProjection.size();t++){
-                
+                //Si le Planning Choisis Correspond au Planning de la Projection alors il l'ajoute à la ListeView
                 if(LProjection.get(t).getNumPlanning()==comboBox.getSelectionModel().getSelectedItem().getNumPlanning()){
                    
                        listeView.getItems().add(LProjection.get(t));
@@ -242,6 +244,7 @@ public class FXMLDocumentController implements Initializable {
         
         
     }
+    //Animation de la Connection
     public void makeFadeOutCon() {
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
@@ -263,7 +266,7 @@ public class FXMLDocumentController implements Initializable {
             AccueilPane.setVisible(true);
             ConnexionPane.setVisible(false);
         }
-        
+       //Animation de l'Accueil 
        public void makeFadeOutProjection(){
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
@@ -280,6 +283,7 @@ public class FXMLDocumentController implements Initializable {
         
            
        }
+       //Animation de la Projection
        public void makeFadeOutPro(){
         FadeTransition fadeTransition = new FadeTransition();
         fadeTransition.setDuration(Duration.millis(1000));
@@ -321,6 +325,7 @@ public class FXMLDocumentController implements Initializable {
         
            
        }
+       //Affichage du Pannel Connexion
        public void loadDecoPane(){
            AccueilPane.setVisible(false);
            ConnexionPane.setVisible(true);
@@ -333,11 +338,12 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void ListClicked(MouseEvent event) {
+        //Lorsque l'on Click dans la ListView nous donne le Film et La Salle Correspondant
         List<Film> LFilm = new ArrayList();
         LFilm = film.getLesFilms();
         List<Salle> LSalle = new ArrayList();
         LSalle = salle.getLesSalles();
-        
+        //Affiche le Film Choisis
         for(int j=0;j<LFilm.size();j++){
             if(LFilm.get(j).getNumFilm()==listeView.getSelectionModel().getSelectedItem().getNumFilm()){
                 filmLabelNom.setText(LFilm.get(j).getTitre());
@@ -348,6 +354,7 @@ public class FXMLDocumentController implements Initializable {
             }
             
         }
+        //Affiche la Salle Choisis 
         for(int j=0;j<LSalle.size();j++){
            if(LSalle.get(j).getNumSalle()==listeView.getSelectionModel().getSelectedItem().getNumSalle()){
                 salleLabelNom.setText(LSalle.get(j).getNom());
@@ -359,17 +366,20 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonSupprimerProjection(ActionEvent event) {
+        //Supprime une Projection de la BD et Rafraichi la ListeView
         projection.supprimerAdministratif(listeView.getSelectionModel().getSelectedItem());
         buttonAfficheAction(event);
         
     }
 
     private void buttonDeconnexion(MouseEvent event) {
+        //Appel la Transition entre le Panel Accueil et Login
         makeFadeOutDeco();
     }
 
     @FXML
     private void buttonRetourAffiche(MouseEvent event) {
+        //Appel la Transition entre le Panel Projection et Accueil
       makeFadeOutPro();
     }
 
@@ -384,7 +394,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void rafraichirListes(ActionEvent event) {
         
-        //Appel la methode ListeCombo qui rempli la ComboBox depuis la Bas
+        //Appel la methode ListeCombo qui rempli la ComboBox depuis la BD
         ListeCombo LC2 = new ListeCombo();
         comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
         
