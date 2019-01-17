@@ -132,9 +132,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private TextField textJour;
     @FXML
-    private TextField text;
+    private Label labelok;
     @FXML
-    private TextField textDate11;
+    private TextField textMois;
+    @FXML
+    private TextField textAnnee;
 
 
     
@@ -384,34 +386,38 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void buttonEntrezAction(ActionEvent event) {
-        List<Projection> listeP = projection.getLesProjection();
+    private boolean buttonEntrezAction(ActionEvent event) {
+        List<Projection> listeP = projection.getLesProjection(comboBoxPane2.getSelectionModel().getSelectedItem());
         List<Film> listeF = film.getLesFilms();
+        Salle salle = ListeSalle.getSelectionModel().getSelectedItem();
         int duree=0;
         int jour;
         Date d;
         String heure;
         int mois ;
         int annee;
-        for(Projection proj : listeP){
-            d = proj.getDate();
-            heure = proj.getHeures();
-            jour = d.getDay();
-            mois = d.getMonth();
-            annee = d.getYear();
+        for(int k = 0; k<listeP.size(); k++){
+            d = listeP.get(k).getDate();
+            heure = listeP.get(k).getHeures(); //format HHhMM
+            jour = d.getDay(); //format JJ
+            mois = d.getMonth(); // format MM
+            annee = d.getYear(); // format YYYY
             
-            for(Film movie : listeF){
-                if(proj.getNumFilm()==movie.getNumFilm()){
-                    duree = movie.getDurée();
-                }
-            }
-            
-            if(duree!=0){
+            if(textHeure.getText().equals(heure) && textJour.getText().equals(jour) && textMois.getText().equals(mois) && salle.getNumSalle()==listeP.get(k).getNumSalle()){
+                
+                return false;
                 
             }
+           
         }
-        //Projection pro = new Projection(22, textHeure.getText(),textDate.getText(),comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
         
+        Date day = new Date(119,Integer.parseInt(textMois.getText())-1,Integer.parseInt(textJour.getText()),Integer.parseInt(textHeure.getText()),0);
+        java.sql.Date date = new java.sql.Date(day.getTime()); 
+        int nbPlanning = comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning()*1000;
+        nbPlanning += listeP.size()+1;
+        Projection pro = new Projection(nbPlanning, textHeure.getText()+"h0",date,comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
+        projection.creerProjection(pro);
+        return true;
         
     }
 
