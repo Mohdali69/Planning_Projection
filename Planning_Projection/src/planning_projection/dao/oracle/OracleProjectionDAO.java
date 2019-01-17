@@ -20,6 +20,7 @@ import java.util.logging.Logger;
 import javax.sql.DataSource;
 import planning_projection.metier.Projection;
 import planning_projection.dao.IProjectionDAO;
+import planning_projection.metier.Planning;
 
 /**
  *
@@ -49,6 +50,30 @@ public class OracleProjectionDAO implements IProjectionDAO{
               stmt= connexionBD.createStatement();
               listeProjection = new ArrayList<>();
               rset = stmt.executeQuery("SELECT * from `Projection`");
+              while(rset.next()){
+                Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
+                listeProjection.add(newM);
+            }
+            }catch(SQLException ex){
+             Logger.getLogger(OracleProjectionDAO.class.getName()).log(Level.SEVERE, null, ex);
+            }
+              
+        
+        return listeProjection ;
+        
+        
+        
+    }
+    
+    public List<Projection> getLesProjection(Planning p) {
+        ResultSet rset = null; 
+        PreparedStatement stmt = null;
+        List<Projection> listeProjection = null; 
+        try {
+              stmt= OracleProjectionDAO.connexionBD.prepareStatement("SELECT * from Projection where numPlanning = ?");
+              stmt.setInt(1, p.getNumPlanning());
+              listeProjection = new ArrayList<>();
+              rset = stmt.executeQuery();
               while(rset.next()){
                 Projection newM = new Projection(rset.getInt("numProjection"), rset.getString("heure"),rset.getDate("date"),rset.getInt("numPlanning"),rset.getInt("numFilm"), rset.getInt("numSalle")) ;
                 listeProjection.add(newM);

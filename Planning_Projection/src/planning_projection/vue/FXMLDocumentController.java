@@ -137,8 +137,10 @@ public class FXMLDocumentController implements Initializable {
     private TextField textMois;
     @FXML
     private TextField textAnnee;
+
     @FXML
     private ImageView buttonDeco;
+
 
 
     
@@ -191,6 +193,8 @@ public class FXMLDocumentController implements Initializable {
             film.setConnection(ods.getConnection());
             salle.setDataSource(ods);
             salle.setConnection(ods.getConnection());
+            ListeCombo LC2 =new ListeCombo();
+            comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
         }
         
        catch (FileNotFoundException ex) {    
@@ -348,7 +352,13 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void buttonProjectionAction(ActionEvent event) {
+        //Appel de la Transition Accueil et Projection
         makeFadeOutProjection();
+        comboBoxPane2.getItems().remove(0, comboBoxPane2.getItems().size());
+        ListeCombo LC2 =new ListeCombo();
+        comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
+        rafraichirListes(event);
+        
     }
 
     @FXML
@@ -400,34 +410,38 @@ public class FXMLDocumentController implements Initializable {
     }
 
     @FXML
-    private void buttonEntrezAction(ActionEvent event) {
-        List<Projection> listeP = projection.getLesProjection();
+    private boolean buttonEntrezAction(ActionEvent event) {
+        List<Projection> listeP = projection.getLesProjection(comboBoxPane2.getSelectionModel().getSelectedItem());
         List<Film> listeF = film.getLesFilms();
+        Salle salle = ListeSalle.getSelectionModel().getSelectedItem();
         int duree=0;
         int jour;
         Date d;
         String heure;
         int mois ;
         int annee;
-        for(Projection proj : listeP){
-            d = proj.getDate();
-            heure = proj.getHeures();
-            jour = d.getDay();
-            mois = d.getMonth();
-            annee = d.getYear();
+        for(int k = 0; k<listeP.size(); k++){
+            d = listeP.get(k).getDate();
+            heure = listeP.get(k).getHeures(); //format HHhMM
+            jour = d.getDay(); //format JJ
+            mois = d.getMonth(); // format MM
+            annee = d.getYear(); // format YYYY
             
-            for(Film movie : listeF){
-                if(proj.getNumFilm()==movie.getNumFilm()){
-                    duree = movie.getDurée();
-                }
-            }
-            
-            if(duree!=0){
+            if(textHeure.getText().equals(heure) && textJour.getText().equals(jour) && textMois.getText().equals(mois) && salle.getNumSalle()==listeP.get(k).getNumSalle()){
+                
+                return false;
                 
             }
+           
         }
-        //Projection pro = new Projection(22, textHeure.getText(),textDate.getText(),comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
         
+        Date day = new Date(119,Integer.parseInt(textMois.getText())-1,Integer.parseInt(textJour.getText()),Integer.parseInt(textHeure.getText()),0);
+        java.sql.Date date = new java.sql.Date(day.getTime()); 
+        int nbPlanning = comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning()*1000;
+        nbPlanning += listeP.size()+1;
+        Projection pro = new Projection(nbPlanning, textHeure.getText()+"h0",date,comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
+        projection.creerProjection(pro);
+        return true;
         
     }
 
@@ -436,7 +450,8 @@ public class FXMLDocumentController implements Initializable {
         
         //Appel la methode ListeCombo qui rempli la ComboBox depuis la BD
         ListeCombo LC2 = new ListeCombo();
-        comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
+        
+        //comboBoxPane2 = LC2.Combo(comboBoxPane2, planning);
         
          //Suppression à chaque fois que l'on appuie sur le button (pas avoir de doublon)
         ListeFilm.getItems().remove(0, ListeFilm.getItems().size());
