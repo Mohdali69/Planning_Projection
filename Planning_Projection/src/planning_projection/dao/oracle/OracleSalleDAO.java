@@ -39,7 +39,7 @@ public class OracleSalleDAO implements ISalleDAO{
         OracleSalleDAO.connexionBD = c;
     }
    
-    
+    //Recupère les Salles de la BD 
     @Override 
     public List<Salle> getLesSalles() {
         ResultSet rset = null; 

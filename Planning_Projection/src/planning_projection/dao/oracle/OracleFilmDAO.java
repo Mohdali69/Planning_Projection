@@ -40,7 +40,7 @@ public class OracleFilmDAO implements IFilmDAO{
         OracleFilmDAO.connexionBD = c;
     }
    
-    
+    //Methode qui recupère les Films dispo dans la BD et les mets dans une ArrayList
     @Override 
     public List<Film> getLesFilms() {
         ResultSet rset = null; 
@@ -61,7 +61,7 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeFilm ;   
     }
-    
+    //Pareil sauf que ce sont des Films du type Long-metrage
     public List<Film> getLM() {
         ResultSet rset = null; 
         Statement stmt = null;
@@ -81,7 +81,7 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeLM ;  
     }
-    
+   //Pareil sauf que ce sont des Films du type UCR
     public List<Film> getUCR() {
         ResultSet rset = null; 
         Statement stmt = null;
@@ -101,7 +101,7 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeUCR ;
     }
-    
+    //Pareil sauf que ce sont des Films du type Hors-Competition   
     public List<Film> getHC() {
         ResultSet rset = null; 
         Statement stmt = null;
@@ -121,7 +121,7 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeLM ;  
     }
-
+    //Pareil sauf que ce sont des Films du type Court-metrage
     public List<Film> getCM() {
         ResultSet rset = null; 
         Statement stmt = null;
@@ -141,6 +141,7 @@ public class OracleFilmDAO implements IFilmDAO{
         
         return listeCM ;
     }
+    //Pareil sauf que ce sont pour un Film 
    public Film getUnFilm(Film Film) {
        ResultSet rset = null;
        Film film = null;

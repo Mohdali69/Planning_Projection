@@ -20,7 +20,7 @@ import planning_projection.metier.Planning;
  * @author Asus
  */
 public class ListeCombo {
-    
+            //Methode qui remplis une listeView a partir des projections dispo dans la BD
     public ListView Liste (ListView listeView,OracleProjectionDAO projection){
                 List<Projection> LProjection = new ArrayList();//Création d'une Liste de Projection
                 LProjection=projection.getLesProjection();

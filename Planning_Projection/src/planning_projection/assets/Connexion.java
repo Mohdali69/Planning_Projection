@@ -18,7 +18,7 @@ import planning_projection.vue.FXMLDocumentController;
 
 public class Connexion {
    
-     
+     //Methode qui permet de voir si nos id sont les bons et nous authentifie
     public boolean connexion(String login,String mdp,OracleUtilisateurDAO utilisateur){
         boolean con=false;//Création d'un boolean afin de tester la connexion
         List<Utilisateur> LUtilisateur = new ArrayList();//Création d'une Liste d'Utilisateur

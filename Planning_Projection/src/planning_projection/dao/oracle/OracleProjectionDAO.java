@@ -39,7 +39,7 @@ public class OracleProjectionDAO implements IProjectionDAO{
         OracleProjectionDAO.connexionBD = c;
     }
    
-    
+    //Recupère les Projections de la BD dans une ArrayList
     @Override 
     public List<Projection> getLesProjection() {
         ResultSet rset = null; 
@@ -63,7 +63,7 @@ public class OracleProjectionDAO implements IProjectionDAO{
         
         
     }
-    
+    //Créer les Projections et les insere dans la BD
     @Override
     public void creerProjection(Projection Projection){ 
         PreparedStatement state = null;
@@ -89,6 +89,7 @@ public class OracleProjectionDAO implements IProjectionDAO{
          
      }
 
+    //Supprime une Projection de la BD
     @Override
    public void supprimerAdministratif(Projection Projection) {
          PreparedStatement state = null;

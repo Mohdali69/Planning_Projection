@@ -39,7 +39,7 @@ public class OracleUtilisateurDAO implements IUtilisateurDAO{
         OracleUtilisateurDAO.connexionBD = c;
     }
    
-    
+    //Recupère les Users de la BD
     @Override 
     public List<Utilisateur> getUsers() {
         ResultSet rset = null; 

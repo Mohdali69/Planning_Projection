@@ -167,7 +167,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // Initialisation des divers DAO
+        // Initialisation des divers DAO et des Panels
         ProjectionPane.setVisible(false);
         AccueilPane.setVisible(false);
         film = new OracleFilmDAO();

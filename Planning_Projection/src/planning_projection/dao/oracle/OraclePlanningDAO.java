@@ -39,7 +39,7 @@ public class OraclePlanningDAO implements IPlanningDAO{
         OraclePlanningDAO.connexionBD = c;
     }
    
-    
+    //Recupère les Plannings de la BD
     @Override 
     public List<Planning> getLesPlannings() {
         ResultSet rset = null; 
@@ -63,7 +63,7 @@ public class OraclePlanningDAO implements IPlanningDAO{
         
         
     }
-    
+    //Créer une Projection de la BD
     @Override
     public void creerPlanning(Planning Planning){ 
         PreparedStatement state = null;
@@ -77,7 +77,7 @@ public class OraclePlanningDAO implements IPlanningDAO{
         }
          
      }
-
+    //Supprime un Planning de la BD
     @Override
    public void supprimerPlanning(Planning Planning) {
          PreparedStatement state = null;
