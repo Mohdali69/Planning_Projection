@@ -479,5 +479,13 @@ public class FXMLDocumentController implements Initializable {
         }
         
     }
+
+    @FXML
+    private void redirect(MouseEvent event) {
+        String urlName = "https://iutdoua-web.univ-lyon1.fr/~p1700102/CPOA/Gestion_Hebergement/index.php";
+         String appli = "\"C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe\"";
+      // appel de la méthode:
+         Connexion.affichePage(urlName, appli);
+    }
     
 }

@@ -19,7 +19,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
          <fill>
@@ -234,7 +234,7 @@
                   <Image url="@Deconnexion.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="123.0" fitWidth="229.0" layoutX="74.0" layoutY="49.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="123.0" fitWidth="229.0" layoutX="74.0" layoutY="49.0" onMouseClicked="#redirect" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../assets/logo.png" />
                </image>
