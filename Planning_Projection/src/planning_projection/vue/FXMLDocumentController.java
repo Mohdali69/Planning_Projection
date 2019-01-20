@@ -422,9 +422,9 @@ public class FXMLDocumentController implements Initializable {
         String heure;
         int mois ;
         int annee;
-        String Jheure = textHeure.getText()+"h0";
-        Date day = new Date(119,Integer.parseInt(textMois.getText())-1,Integer.parseInt(textJour.getText()));
-        for(int k = 0; k<listeP.size(); k++){
+        String Jheure = textHeure.getText()+"h0"; //mise ajour de l'heure avec le format de la BDD
+        Date day = new Date(119,Integer.parseInt(textMois.getText())-1,Integer.parseInt(textJour.getText())); //conversion des champs rentrés en date
+        for(int k = 0; k<listeP.size(); k++){ //pour toute la liste des proj
             d = listeP.get(k).getDate();
             
             heure = listeP.get(k).getHeures(); //format HHhMM
@@ -432,21 +432,21 @@ public class FXMLDocumentController implements Initializable {
             mois = d.getMonth(); // format MM
             annee = d.getYear(); // format YYYY
             
-            if(day.equals(d) && Jheure.equals(heure) && salle.getNumSalle()==listeP.get(k).getNumSalle()){
+            if(day.equals(d) && Jheure.equals(heure) && salle.getNumSalle()==listeP.get(k).getNumSalle()){ // s'il ya une projection à la même heure
                 
-                labelok.setText("La projection ne peut être ajoutée, vérification des contraintes échouée.");
-                return false;
+                labelok.setText("La projection ne peut être ajoutée, vérification des contraintes échouée."); // on affiche un message 
+                return false; // et on stop la méthode
                 
             }
            
         }
         
         
-        java.sql.Date date = new java.sql.Date(day.getTime()); 
+        java.sql.Date date = new java.sql.Date(day.getTime());  
         int nbPlanning = (comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning()+1)*1000;
         nbPlanning += listeP.size()+1;
         Projection pro = new Projection(nbPlanning,Jheure,date,comboBoxPane2.getSelectionModel().getSelectedItem().getNumPlanning(),ListeFilm.getSelectionModel().getSelectedItem().getNumFilm(),ListeSalle.getSelectionModel().getSelectedItem().getNumSalle());
-        projection.creerProjection(pro);
+        projection.creerProjection(pro); // création de la projection dans la base de donnée
         return true;
         
     }

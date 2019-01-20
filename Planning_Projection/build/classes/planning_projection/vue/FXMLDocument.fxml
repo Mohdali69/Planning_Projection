@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ProgressIndicator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.effect.MotionBlur?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="connexionPanel" maxHeight="834.0" maxWidth="1405.0" minHeight="409.0" minWidth="506.0" prefHeight="834.0" prefWidth="1405.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="planning_projection.vue.FXMLDocumentController">
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-23.0" layoutY="-29.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
+         <fill>
+            <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+               <stops>
+                  <Stop color="#cf2d2d" />
+                  <Stop color="BLACK" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </fill>
+      </Rectangle>
+      <Pane fx:id="ConnexionPane" minHeight="-Infinity" minWidth="-Infinity" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="907.0" layoutX="-33.0" layoutY="-39.0" stroke="BLACK" strokeType="INSIDE" width="1661.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#fdfbfb" height="310.0" layoutX="535.0" layoutY="247.0" stroke="BLACK" strokeType="INSIDE" width="360.0" />
+            <TextField fx:id="login" layoutX="645.0" layoutY="322.0" />
+            <PasswordField fx:id="mdp" layoutX="647.0" layoutY="392.0">
+               <effect>
+                  <MotionBlur />
+               </effect>
+            </PasswordField>
+              <Button fx:id="button" layoutX="762.0" layoutY="489.0" onAction="#handleButtonAction" text="Se Connecter" />
+            <Label fx:id="message" layoutX="545.0" layoutY="490.0" prefHeight="34.0" prefWidth="209.0" />
+            <ProgressIndicator fx:id="progressBar" layoutX="694.0" layoutY="443.0" progress="0.0" />
+            <Label layoutX="614.0" layoutY="274.0" prefHeight="34.0" prefWidth="220.0" text="     Connectez-Vous ">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.4666666666666667" centerY="0.5571428571428572" focusAngle="-11.07" focusDistance="0.13953488372093026" radius="0.7906976744186047">
+                     <stops>
+                        <Stop color="BLACK" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="AccueilPane" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="854.0" stroke="BLACK" strokeType="INSIDE" width="1433.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="41.0" layoutY="210.0" stroke="TRANSPARENT" strokeType="INSIDE" width="294.0" />
+            <Button fx:id="buttonProjection" layoutX="71.0" layoutY="357.0" mnemonicParsing="false" onAction="#buttonProjectionAction" prefHeight="40.0" prefWidth="241.0" text="Créer une Projection">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
+               </effect>
+            </Button>
+            <Button id="button" fx:id="buttonPlanning" layoutX="71.0" layoutY="289.0" mnemonicParsing="false" onAction="#buttonTestList" prefHeight="40.0" prefWidth="241.0" stylesheets="@../assets/styles.css" text="Generer un planning">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow blurType="GAUSSIAN" choke="0.27" color="#5b0000" height="32.86" radius="12.965" />
+               </effect>
+               <styleClass>
+                  <String fx:value="button" />
+                  <String fx:value="phone" />
+               </styleClass>
+            </Button>
+            <Label alignment="CENTER" layoutX="73.0" layoutY="223.0" prefHeight="48.0" prefWidth="241.0" text="Actions" textAlignment="CENTER" textOverrun="CLIP">
+               <font>
+                  <Font size="37.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.46111111111111114" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#837474" />
+                        <Stop color="#837474" offset="0.007662835249042145" />
+                        <Stop color="WHITE" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+            <ComboBox fx:id="comboBox" layoutX="91.0" layoutY="498.0" onAction="#choixComboBox" prefWidth="150.0" />
+            <ListView fx:id="listeView" layoutX="349.0" layoutY="210.0" onMouseClicked="#ListClicked" orientation="HORIZONTAL" prefHeight="310.0" prefWidth="1054.0" />
+
+                  <Button fx:id="afficheButton" layoutX="269.0" layoutY="498.0" mnemonicParsing="false" onAction="#buttonAfficheAction" text="Afficher" />
+            <ImageView fitHeight="272.0" fitWidth="398.0" layoutX="459.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/ba.jpg" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="272.0" fitWidth="363.0" layoutX="929.0" layoutY="557.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/ba.jpg" />
+               </image>
+            </ImageView>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="931.0" layoutY="557.0" stroke="TRANSPARENT" strokeType="INSIDE" width="363.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="272.0" layoutX="459.0" layoutY="558.0" stroke="TRANSPARENT" strokeType="INSIDE" width="363.0" />
+            <Label layoutX="1110.0" layoutY="579.0" text="Film" textFill="#fffbfb">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="615.0" layoutY="580.0" text="Salle" textFill="#fffbfb">
+               <font>
+                  <Font name="System Bold" size="19.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelNom" layoutX="1046.0" layoutY="628.0" prefHeight="34.0" prefWidth="307.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="938.0" layoutY="627.0" prefHeight="34.0" prefWidth="99.0" text="Nom du Film :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="938.0" layoutY="661.0" prefHeight="34.0" prefWidth="57.0" text="Durée :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelDurée" layoutX="995.0" layoutY="661.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="938.0" layoutY="693.0" prefHeight="34.0" prefWidth="86.0" text="Réalisateur :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelRealisateur" layoutX="1030.0" layoutY="693.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="938.0" layoutY="727.0" prefHeight="34.0" prefWidth="42.0" text="Pays :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelPays" layoutX="986.0" layoutY="727.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="938.0" layoutY="761.0" prefHeight="34.0" prefWidth="99.0" text="Competition :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="filmLabelCompet" layoutX="1037.0" layoutY="761.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelNom" layoutX="597.0" layoutY="628.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="474.0" layoutY="628.0" prefHeight="34.0" prefWidth="116.0" text="Nom de la Salle :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="474.0" layoutY="662.0" prefHeight="34.0" prefWidth="116.0" text="Num de la Salle :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelNum" layoutX="597.0" layoutY="662.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="474.0" layoutY="694.0" prefHeight="34.0" prefWidth="57.0" text="Places :" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="salleLabelPlaces" layoutX="543.0" layoutY="694.0" prefHeight="34.0" prefWidth="185.0" textFill="WHITE">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button fx:id="buttonSuppromer" layoutX="73.0" layoutY="423.0" mnemonicParsing="false" onAction="#buttonSupprimerProjection" prefHeight="40.0" prefWidth="241.0" text="Supprimer Projection">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <effect>
+                  <InnerShadow blurType="GAUSSIAN" choke="0.3" color="#460000" height="29.89" radius="12.16" width="20.75" />
+               </effect>
+            </Button>
+            <ImageView fx:id="buttonDeco" fitHeight="54.0" fitWidth="80.0" layoutX="19.0" layoutY="774.0" onMouseClicked="#buttonDeconnexion" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@Deconnexion.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="123.0" fitWidth="229.0" layoutX="74.0" layoutY="49.0" onMouseClicked="#redirect" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../assets/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="494.0" layoutY="46.0" text="Planning du Festival ">
+               <font>
+                  <Font size="82.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#ffa6a6" />
+                        <Stop color="#ff8282" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+         </children>
+      </Pane>
+      <Pane fx:id="ProjectionPane" prefHeight="834.0" prefWidth="1405.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="942.0" layoutX="-27.0" layoutY="-13.0" stroke="BLACK" strokeType="INSIDE" width="1602.0">
+               <fill>
+                  <RadialGradient centerX="0.5" centerY="0.5" radius="0.5">
+                     <stops>
+                        <Stop color="#cf2d2d" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </fill>
+            </Rectangle>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#3834346e" height="430.0" layoutX="430.0" layoutY="216.0" stroke="TRANSPARENT" strokeType="INSIDE" width="573.0" />
+            <Label layoutX="578.0" layoutY="248.0" prefHeight="40.0" prefWidth="284.0" text="Créer une projection">
+               <font>
+                  <Font name="System Bold" size="28.0" />
+               </font>
+               <textFill>
+                  <RadialGradient centerX="0.8388888888888889" centerY="0.4285714285714286" focusAngle="-11.07" focusDistance="-0.6279069767441859" radius="1.0">
+                     <stops>
+                        <Stop color="#f2f2f2" />
+                        <Stop color="BLACK" offset="1.0" />
+                     </stops>
+                  </RadialGradient>
+               </textFill>
+            </Label>
+
+                  <Button fx:id="afficherProjectionButton" layoutX="692.0" layoutY="608.0" mnemonicParsing="false" onAction="#buttonEntrezAction" text="Entrez" />
+            <ImageView fx:id="buttonRetour" fitHeight="79.0" fitWidth="38.0" layoutX="35.0" layoutY="17.0" onMouseClicked="#buttonRetourAffiche" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back2.png" />
+               </image>
+            </ImageView>
+            <ListView fx:id="ListeFilm" layoutX="1108.0" layoutY="216.0" prefHeight="531.0" prefWidth="200.0" />
+            <ListView fx:id="ListeSalle" layoutX="128.0" layoutY="216.0" prefHeight="523.0" prefWidth="200.0" />
+            <Label layoutX="494.0" layoutY="339.0" prefHeight="28.0" prefWidth="65.0" text="Jour :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textJour" layoutX="578.0" layoutY="341.0" />
+            <Label layoutX="494.0" layoutY="457.0" prefHeight="28.0" prefWidth="65.0" text="Heure :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textHeure" layoutX="578.0" layoutY="458.0" />
+            <Label fx:id="labelok" layoutX="486.0" layoutY="534.0" prefHeight="74.0" prefWidth="468.0" text="Choisissez votre Film et votre Salle à partir de la Liste" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Button fx:id="Raf" layoutX="659.0" layoutY="739.0" mnemonicParsing="false" onAction="#rafraichirListes" text="Rafraichir Listes" />
+            <ComboBox fx:id="comboBoxPane2" layoutX="591.0" layoutY="500.0" prefWidth="150.0" />
+            <Label layoutX="494.0" layoutY="498.0" prefHeight="28.0" prefWidth="86.0" text="Planning :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <TextField fx:id="textMois" layoutX="578.0" layoutY="377.0" />
+            <TextField fx:id="textAnnee" layoutX="578.0" layoutY="419.0" />
+            <Label layoutX="494.0" layoutY="376.0" prefHeight="28.0" prefWidth="65.0" text="Mois :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+            <Label layoutX="494.0" layoutY="418.0" prefHeight="28.0" prefWidth="65.0" text="Année :" textFill="#fffbfb">
+               <font>
+                  <Font size="19.0" />
+               </font>
+            </Label>
+
+               </children>
+      </Pane>
+    </children>
+</AnchorPane>
