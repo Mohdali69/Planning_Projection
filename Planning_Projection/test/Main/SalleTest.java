@@ -22,19 +22,23 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 import planning_projection.assets.ListeCombo;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
+import planning_projection.dao.oracle.OracleFilmDAO;
 import planning_projection.dao.oracle.OracleProjectionDAO;
+import planning_projection.dao.oracle.OracleSalleDAO;
+import planning_projection.metier.Film;
 import planning_projection.metier.Projection;
+import planning_projection.metier.Salle;
 import planning_projection.vue.FXMLDocumentController;
 
 /**
  *
  * @author Asus
  */
-public class ListeComboTest {
+public class SalleTest {
     
     OracleDataSourceDAO ods;
-    OracleProjectionDAO projection;
-    public ListeComboTest() {
+    OracleSalleDAO salle;
+    public SalleTest() {
     }
     
     @BeforeClass
@@ -47,11 +51,11 @@ public class ListeComboTest {
     
     @Before
     public void setUp() throws IOException {
-        projection = new OracleProjectionDAO();
+        salle = new OracleSalleDAO();
         try{
             ods = OracleDataSourceDAO.getOracleDataSourceDAO();
-            projection.setDataSource(ods);
-            projection.setConnection(ods.getConnection());
+            salle.setDataSource(ods);
+            salle.setConnection(ods.getConnection());
         }catch (FileNotFoundException | SQLException ex) {
             Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
         } 
@@ -66,26 +70,16 @@ public class ListeComboTest {
     //
     @Test
     public void Allgood() {
-        List<Projection> LProjection = new ArrayList();
-        LProjection=projection.getLesProjection();
-        List<Projection> LProjection2 = new ArrayList();
-        for(int test=0;test<LProjection.size();test++){
-            if(LProjection.get(test).getNumPlanning()==0){
-                LProjection2.add(LProjection.get(test));
-            }
-        }
-        assertEquals(LProjection2.size(),LProjection2.size());
+        List<Salle> LSalle = new ArrayList();
+        LSalle=salle.getLesSalles();
+        List<Salle> LSalle2 = new ArrayList();        
+        assertEquals(LSalle.size(),5);
     }
     @Test
     public void Allbad() {
-        List<Projection> LProjection = new ArrayList();
-        LProjection=projection.getLesProjection();
-        List<Projection> LProjection2 = new ArrayList();
-        for(int test=0;test<LProjection.size();test++){
-            if(LProjection.get(test).getNumPlanning()==0){
-                LProjection2.add(LProjection.get(test));
-            }
-        }
-        assertThat(LProjection2.size(),not(equalTo(0)));
+        List<Salle> LSalle = new ArrayList();
+        LSalle=salle.getLesSalles();
+        List<Salle> LSalle2 = new ArrayList();        
+        assertThat(LSalle.size(),not(equalTo(0)));
     }
 }

@@ -1,10 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package planning_projection.assets;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import planning_projection.dao.oracle.OracleDataSourceDAO;
@@ -39,5 +36,25 @@ public class Connexion {
             }
         return con;
     }
+    
+    public static void affichePage(String urlName, String execDir)
+      {
+         try
+         {
+            Runtime r = Runtime.getRuntime();
+            r.exec(execDir + " " + urlName);  // le lien est dans urlName
+         }
+            catch(FileNotFoundException fnfe) // si nom appli ( ici IE ) non trouvé
+            {
+               String info = execDir + "(fnfe)  non trouvé !!!";
+               javax.swing.JOptionPane.showMessageDialog(null,info);
+            }
+            catch(IOException ioe)
+            {
+               String info = execDir 
+                  + ioe;
+               javax.swing.JOptionPane.showMessageDialog(null,info);
+            }
+      }
     
 }
