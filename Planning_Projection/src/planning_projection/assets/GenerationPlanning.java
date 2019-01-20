@@ -93,6 +93,7 @@ public class GenerationPlanning {
         
         List<Film> LMDay = new ArrayList<>();
         int nLM = 0;
+        int nHC =0;
         int compteur = 1;
         
         List<Film> LM = new ArrayList();
@@ -120,12 +121,14 @@ public class GenerationPlanning {
             day.setHours(8);
             day.setMinutes(0);
             nLM = 0;
+            nHC = 0;
             LMDay.clear();
             i++;
             
             if(compteur <=11){
                 
-                //while (nLM < 2){
+                    
+                
                     for(Film movie : LM){
                         
                         if(movie.getNbProjection()==0 && movie.getLendemain()==0){
@@ -179,7 +182,7 @@ public class GenerationPlanning {
                 //}//end while, les LM Sont placés, seances, deuxiemes séances et séance du lendemain   
             }//end if
             
-            if(compteur>=3 && compteur<=12){
+            if(compteur>=2 && compteur<=11){
                 
                 for(Film movie : UCR){
                     
@@ -217,7 +220,7 @@ public class GenerationPlanning {
                 }//end for   
             }//end if les UCR sont placés, principale + lendemain
             
-            if(compteur == 13){
+            if(compteur == 12){
                 
                 for(Film movie : CM){
                     
@@ -238,7 +241,29 @@ public class GenerationPlanning {
                 }// end for
                 
             }//end if
-            
+            for(Film movie : HC){
+                        
+                        if(movie.getNbProjection()==0 && movie.getLendemain()==0){
+                            
+                            if(day.getHours()<=23 && day.getMinutes()<30){
+                                String heure = day.getHours() +"h"+ day.getMinutes();
+                                Projection p = new Projection(i, heure, day, numPlanning, movie.getNumFilm(), 0 ); //le numSalle des HC est 0
+                                OPD.creerProjection(p);
+                                day=addMin(day, movie.getDurée());
+                                nHC++;
+                                
+                                movie.setNbProjection(movie.getNbProjection()+1);
+                                i++;
+                            }//end if 
+                            
+                        }//end if
+                        
+                        
+                        
+                        if(nHC>=1){
+                            break;
+                        }
+                    }//end for
             day = addDay(day);
             
         }//end for
